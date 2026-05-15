@@ -1,0 +1,397 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Quotes on Design API",
+    "description": "This API provides access to design-related quotes using the WordPress built-in REST API. It allows users to retrieve randomized quotes through a simplified request format, although it has limited features compared to previous versions. All other APIs have been discontinued, making this the primary source for quotes on design.",
+    "version": "5.0.0",
+    "contact": {
+      "name": "Quotes on Design",
+      "url": "https://quotesondesign.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://quotesondesign.com/wp-json/wp/v2",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/posts/": {
+      "get": {
+        "summary": "Get design quotes",
+        "description": "Retrieves design-related quotes from the WordPress REST API. Supports randomized ordering of results.",
+        "operationId": "getPosts",
+        "tags": [
+          "Quotes"
+        ],
+        "parameters": [
+          {
+            "name": "orderby",
+            "in": "query",
+            "description": "Order posts by a specific field. Use 'rand' for randomized results.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "date",
+                "id",
+                "title",
+                "rand"
+              ],
+              "default": "date"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Number of posts to retrieve per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 10
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number of results to retrieve",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "_embed",
+            "in": "query",
+            "description": "Include embedded resources in the response",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with an array of quote posts",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Post"
+                  }
+                },
+                "example": [
+                  {
+                    "id": 1234,
+                    "date": "2023-01-15T10:30:00",
+                    "date_gmt": "2023-01-15T10:30:00",
+                    "modified": "2023-01-15T10:30:00",
+                    "modified_gmt": "2023-01-15T10:30:00",
+                    "slug": "sample-design-quote",
+                    "status": "publish",
+                    "type": "post",
+                    "link": "https://quotesondesign.com/sample-design-quote/",
+                    "title": {
+                      "rendered": "Author Name"
+                    },
+                    "content": {
+                      "rendered": "<p>Design is not just what it looks like and feels like. Design is how it works.</p>",
+                      "protected": false
+                    },
+                    "excerpt": {
+                      "rendered": "<p>Design is not just what it looks like and feels like.</p>",
+                      "protected": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/posts/{id}": {
+      "get": {
+        "summary": "Get a specific quote by ID",
+        "description": "Retrieves a single design quote post by its unique identifier",
+        "operationId": "getPostById",
+        "tags": [
+          "Quotes"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier of the post",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "_embed",
+            "in": "query",
+            "description": "Include embedded resources in the response",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a single quote post",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Post"
+                },
+                "example": {
+                  "id": 1234,
+                  "date": "2023-01-15T10:30:00",
+                  "date_gmt": "2023-01-15T10:30:00",
+                  "modified": "2023-01-15T10:30:00",
+                  "modified_gmt": "2023-01-15T10:30:00",
+                  "slug": "sample-design-quote",
+                  "status": "publish",
+                  "type": "post",
+                  "link": "https://quotesondesign.com/sample-design-quote/",
+                  "title": {
+                    "rendered": "Author Name"
+                  },
+                  "content": {
+                    "rendered": "<p>Design is not just what it looks like and feels like. Design is how it works.</p>",
+                    "protected": false
+                  },
+                  "excerpt": {
+                    "rendered": "<p>Design is not just what it looks like and feels like.</p>",
+                    "protected": false
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Post not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Post": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier for the post"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The date the post was published, in the site's timezone"
+          },
+          "date_gmt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The date the post was published, as GMT"
+          },
+          "guid": {
+            "type": "object",
+            "properties": {
+              "rendered": {
+                "type": "string",
+                "description": "GUID for the post, as it exists in the database"
+              }
+            }
+          },
+          "modified": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The date the post was last modified, in the site's timezone"
+          },
+          "modified_gmt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The date the post was last modified, as GMT"
+          },
+          "slug": {
+            "type": "string",
+            "description": "An alphanumeric identifier for the post unique to its type"
+          },
+          "status": {
+            "type": "string",
+            "description": "A named status for the post"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of post"
+          },
+          "link": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the post"
+          },
+          "title": {
+            "type": "object",
+            "properties": {
+              "rendered": {
+                "type": "string",
+                "description": "HTML title for the post, transformed for display"
+              }
+            }
+          },
+          "content": {
+            "type": "object",
+            "properties": {
+              "rendered": {
+                "type": "string",
+                "description": "HTML content for the post, transformed for display"
+              },
+              "protected": {
+                "type": "boolean",
+                "description": "Whether the content is protected with a password"
+              }
+            }
+          },
+          "excerpt": {
+            "type": "object",
+            "properties": {
+              "rendered": {
+                "type": "string",
+                "description": "HTML excerpt for the post, transformed for display"
+              },
+              "protected": {
+                "type": "boolean",
+                "description": "Whether the excerpt is protected with a password"
+              }
+            }
+          },
+          "author": {
+            "type": "integer",
+            "description": "The ID for the author of the post"
+          },
+          "featured_media": {
+            "type": "integer",
+            "description": "The ID of the featured media for the post"
+          },
+          "comment_status": {
+            "type": "string",
+            "description": "Whether or not comments are open on the post"
+          },
+          "ping_status": {
+            "type": "string",
+            "description": "Whether or not the post can be pinged"
+          },
+          "sticky": {
+            "type": "boolean",
+            "description": "Whether or not the post should be treated as sticky"
+          },
+          "template": {
+            "type": "string",
+            "description": "The theme file to use to display the post"
+          },
+          "format": {
+            "type": "string",
+            "description": "The format for the post"
+          },
+          "meta": {
+            "type": "object",
+            "description": "Meta fields"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "The terms assigned to the post in the category taxonomy"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "The terms assigned to the post in the post_tag taxonomy"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Error code"
+          },
+          "message": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "integer",
+                "description": "HTTP status code"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Quotes",
+      "description": "Operations related to design quotes"
+    }
+  ],
+  "externalDocs": {
+    "description": "Official API Documentation",
+    "url": "https://quotesondesign.com/api/"
+  }
+}

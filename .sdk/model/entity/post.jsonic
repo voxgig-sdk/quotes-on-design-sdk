@@ -1,0 +1,240 @@
+# Entity: post
+
+main: kit: entity: post: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "author"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "category"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "comment_status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "content"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "date_gmt"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "excerpt"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "featured_media"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "format"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "guid"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "link"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "meta"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "modified"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "modified_gmt"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "ping_status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "slug"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "sticky"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "tag"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "template"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "type"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "post"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: false
+                kind: "query"
+                name: "embed"
+                orig: "embed"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: "date"
+                kind: "query"
+                name: "orderby"
+                orig: "orderby"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 10
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/posts/"
+          parts: [
+            "posts"
+          ]
+          select: {
+            exist: [
+              "embed"
+              "orderby"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                example: false
+                kind: "query"
+                name: "embed"
+                orig: "embed"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/posts/{id}"
+          parts: [
+            "posts"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "embed"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Quotes on Design"
+        url: "https://quotesondesign.com"
+      }
+      description: "This API provides access to design-related quotes using the WordPress built-in REST API. It allows users to retrieve randomized quotes through a simplified request format, although it has limited features compared to previous versions. All other APIs have been discontinued, making this the primary source for quotes on design."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://quotesondesign.com/wp-json/wp/v2"
+        }
+      ]
+      title: "Quotes on Design API"
+      version: "5.0.0"
+    }
+  }
+}
+
+}

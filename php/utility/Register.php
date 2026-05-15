@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// QuotesOnDesign SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+QuotesOnDesignUtility::setRegistrar(function (QuotesOnDesignUtility $u): void {
+    $u->clean = [QuotesOnDesignClean::class, 'call'];
+    $u->done = [QuotesOnDesignDone::class, 'call'];
+    $u->make_error = [QuotesOnDesignMakeError::class, 'call'];
+    $u->feature_add = [QuotesOnDesignFeatureAdd::class, 'call'];
+    $u->feature_hook = [QuotesOnDesignFeatureHook::class, 'call'];
+    $u->feature_init = [QuotesOnDesignFeatureInit::class, 'call'];
+    $u->fetcher = [QuotesOnDesignFetcher::class, 'call'];
+    $u->make_fetch_def = [QuotesOnDesignMakeFetchDef::class, 'call'];
+    $u->make_context = [QuotesOnDesignMakeContext::class, 'call'];
+    $u->make_options = [QuotesOnDesignMakeOptions::class, 'call'];
+    $u->make_request = [QuotesOnDesignMakeRequest::class, 'call'];
+    $u->make_response = [QuotesOnDesignMakeResponse::class, 'call'];
+    $u->make_result = [QuotesOnDesignMakeResult::class, 'call'];
+    $u->make_point = [QuotesOnDesignMakePoint::class, 'call'];
+    $u->make_spec = [QuotesOnDesignMakeSpec::class, 'call'];
+    $u->make_url = [QuotesOnDesignMakeUrl::class, 'call'];
+    $u->param = [QuotesOnDesignParam::class, 'call'];
+    $u->prepare_auth = [QuotesOnDesignPrepareAuth::class, 'call'];
+    $u->prepare_body = [QuotesOnDesignPrepareBody::class, 'call'];
+    $u->prepare_headers = [QuotesOnDesignPrepareHeaders::class, 'call'];
+    $u->prepare_method = [QuotesOnDesignPrepareMethod::class, 'call'];
+    $u->prepare_params = [QuotesOnDesignPrepareParams::class, 'call'];
+    $u->prepare_path = [QuotesOnDesignPreparePath::class, 'call'];
+    $u->prepare_query = [QuotesOnDesignPrepareQuery::class, 'call'];
+    $u->result_basic = [QuotesOnDesignResultBasic::class, 'call'];
+    $u->result_body = [QuotesOnDesignResultBody::class, 'call'];
+    $u->result_headers = [QuotesOnDesignResultHeaders::class, 'call'];
+    $u->transform_request = [QuotesOnDesignTransformRequest::class, 'call'];
+    $u->transform_response = [QuotesOnDesignTransformResponse::class, 'call'];
+});

@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/quotes-on-design-sdk/core"
+	"github.com/voxgig-sdk/quotes-on-design-sdk/go/core"
 )
 
 type BaseFeature struct {

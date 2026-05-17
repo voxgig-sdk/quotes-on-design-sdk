@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/quotes-on-design-sdk"
-	"github.com/voxgig-sdk/quotes-on-design-sdk/core"
+	sdk "github.com/voxgig-sdk/quotes-on-design-sdk/go"
+	"github.com/voxgig-sdk/quotes-on-design-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/quotes-on-design-sdk/go/utility/struct"
 )
 
 func TestPostEntity(t *testing.T) {

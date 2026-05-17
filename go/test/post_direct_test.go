@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/quotes-on-design-sdk"
-	"github.com/voxgig-sdk/quotes-on-design-sdk/core"
+	sdk "github.com/voxgig-sdk/quotes-on-design-sdk/go"
+	"github.com/voxgig-sdk/quotes-on-design-sdk/go/core"
 )
 
 func TestPostDirect(t *testing.T) {

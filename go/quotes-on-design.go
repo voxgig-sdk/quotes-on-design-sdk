@@ -1,10 +1,10 @@
 package voxgigquotesondesignsdk
 
 import (
-	"github.com/voxgig-sdk/quotes-on-design-sdk/core"
-	"github.com/voxgig-sdk/quotes-on-design-sdk/entity"
-	"github.com/voxgig-sdk/quotes-on-design-sdk/feature"
-	_ "github.com/voxgig-sdk/quotes-on-design-sdk/utility"
+	"github.com/voxgig-sdk/quotes-on-design-sdk/go/core"
+	"github.com/voxgig-sdk/quotes-on-design-sdk/go/entity"
+	"github.com/voxgig-sdk/quotes-on-design-sdk/go/feature"
+	_ "github.com/voxgig-sdk/quotes-on-design-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

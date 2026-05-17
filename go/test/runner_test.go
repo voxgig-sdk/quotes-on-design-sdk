@@ -12,9 +12,9 @@ import (
 	"sync"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/quotes-on-design-sdk"
+	sdk "github.com/voxgig-sdk/quotes-on-design-sdk/go"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/quotes-on-design-sdk/go/utility/struct"
 )
 
 var envLocalOnce sync.Once

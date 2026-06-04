@@ -23,12 +23,9 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
-import os
 from quotesondesign_sdk import QuotesOnDesignSDK
 
-client = QuotesOnDesignSDK({
-    "apikey": os.environ.get("QUOTES-ON-DESIGN_APIKEY"),
-})
+client = QuotesOnDesignSDK({})
 ```
 
 ### 2. List posts
@@ -130,7 +127,6 @@ Create a `.env.local` file at the project root:
 
 ```
 QUOTES-ON-DESIGN_TEST_LIVE=TRUE
-QUOTES-ON-DESIGN_APIKEY=<your-key>
 ```
 
 Then run:
@@ -154,7 +150,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |

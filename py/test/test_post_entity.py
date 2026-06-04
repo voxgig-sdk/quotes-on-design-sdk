@@ -102,7 +102,6 @@ def _post_basic_setup(extra):
         "QUOTESONDESIGN_TEST_POST_ENTID": idmap,
         "QUOTESONDESIGN_TEST_LIVE": "FALSE",
         "QUOTESONDESIGN_TEST_EXPLAIN": "FALSE",
-        "QUOTESONDESIGN_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -113,7 +112,6 @@ def _post_basic_setup(extra):
     if env.get("QUOTESONDESIGN_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("QUOTESONDESIGN_APIKEY"),
             },
             extra or {},
         ])

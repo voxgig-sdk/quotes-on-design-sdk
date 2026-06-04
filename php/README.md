@@ -20,9 +20,7 @@ loading a specific record.
 <?php
 require_once 'quotesondesign_sdk.php';
 
-$client = new QuotesOnDesignSDK([
-    "apikey" => getenv("QUOTES-ON-DESIGN_APIKEY"),
-]);
+$client = new QuotesOnDesignSDK([]);
 ```
 
 ### 2. List posts
@@ -127,7 +125,6 @@ Create a `.env.local` file at the project root:
 
 ```
 QUOTES-ON-DESIGN_TEST_LIVE=TRUE
-QUOTES-ON-DESIGN_APIKEY=<your-key>
 ```
 
 Then run:
@@ -150,7 +147,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |

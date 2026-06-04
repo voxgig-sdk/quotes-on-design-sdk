@@ -28,16 +28,13 @@ package main
 
 import (
     "fmt"
-    "os"
 
     sdk "github.com/voxgig-sdk/quotes-on-design-sdk/go"
     "github.com/voxgig-sdk/quotes-on-design-sdk/go/core"
 )
 
 func main() {
-    client := sdk.NewQuotesOnDesignSDK(map[string]any{
-        "apikey": os.Getenv("QUOTES-ON-DESIGN_APIKEY"),
-    })
+    client := sdk.NewQuotesOnDesignSDK(map[string]any{})
 ```
 
 ### 2. List posts
@@ -157,7 +154,6 @@ Create a `.env.local` file at the project root:
 
 ```
 QUOTES-ON-DESIGN_TEST_LIVE=TRUE
-QUOTES-ON-DESIGN_APIKEY=<your-key>
 ```
 
 Then run:
@@ -179,7 +175,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `"apikey"` | `string` | API key for authentication. |
 | `"base"` | `string` | Base URL of the API server. |
 | `"prefix"` | `string` | URL path prefix prepended to all requests. |
 | `"suffix"` | `string` | URL path suffix appended to all requests. |

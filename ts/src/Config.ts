@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://quotesondesign.com/wp-json/wp/v2',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },

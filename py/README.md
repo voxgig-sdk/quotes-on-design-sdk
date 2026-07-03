@@ -10,7 +10,7 @@ The Python SDK for the QuotesOnDesign API — an entity-oriented client followin
 
 ## Install
 ```bash
-pip install quotes-on-design-sdk
+pip install voxgig-sdk-quotes-on-design
 ```
 
 Or install from source:

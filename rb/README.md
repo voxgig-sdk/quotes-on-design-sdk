@@ -10,13 +10,13 @@ The Ruby SDK for the QuotesOnDesign API — an entity-oriented client using idio
 
 ## Install
 ```bash
-gem install quotes-on-design-sdk
+gem install voxgig-sdk-quotes-on-design
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "quotes-on-design-sdk"
+gem "voxgig-sdk-quotes-on-design"
 ```
 
 Then run:

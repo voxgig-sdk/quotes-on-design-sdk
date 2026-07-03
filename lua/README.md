@@ -10,7 +10,7 @@ The Lua SDK for the QuotesOnDesign API — an entity-oriented client using Lua c
 
 ## Install
 ```bash
-luarocks install quotes-on-design-sdk
+luarocks install voxgig-sdk-quotes-on-design
 ```
 
 If the module is not yet published, add the source directory to

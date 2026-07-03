@@ -8,12 +8,14 @@ source = {
   dir = "quotes-on-design-sdk/lua"
 }
 description = {
-  summary = "QuotesOnDesign SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Quotes on Design public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/quotes-on-design-sdk",
+  issues_url = "https://github.com/voxgig-sdk/quotes-on-design-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "quotes-on-design" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

@@ -10,7 +10,7 @@ The TypeScript SDK for the QuotesOnDesign API — a type-safe, entity-oriented c
 
 ## Install
 ```bash
-npm install quotes-on-design
+npm install @voxgig-sdk/quotes-on-design
 ```
 ## Tutorial: your first API call
 

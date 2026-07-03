@@ -10,7 +10,7 @@ The PHP SDK for the QuotesOnDesign API — an entity-oriented client using PHP c
 
 ## Install
 ```bash
-composer require voxgig/quotes-on-design-sdk
+composer require voxgig-sdk/quotes-on-design
 ```
 
 

@@ -120,6 +120,7 @@ function basicSetup(extra?: any) {
     'QUOTES_ON_DESIGN_TEST_POST_ENTID': idmap,
     'QUOTES_ON_DESIGN_TEST_LIVE': 'FALSE',
     'QUOTES_ON_DESIGN_TEST_EXPLAIN': 'FALSE',
+    'QUOTES_ON_DESIGN_APIKEY': 'NONE',
   })
 
   idmap = env['QUOTES_ON_DESIGN_TEST_POST_ENTID']
@@ -129,6 +130,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new QuotesOnDesignSDK(merge([
       {
+        apikey: env.QUOTES_ON_DESIGN_APIKEY,
       },
       extra
     ]))

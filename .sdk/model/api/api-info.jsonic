@@ -17,28 +17,7 @@ main: {
       ]
       title: "Quotes on Design API"
       version: "5.0.0"
-      tagline: "Fetch design-related quotes curated by Chris Coyier, served through the standard WordPress REST API"
-      homepage: "https://quotesondesign.com/"
-      docs_url: "https://developer.wordpress.org/rest-api/reference/posts/"
-      license_short: "No explicit licence stated; treat quotes as quotations of their original authors and attribute accordingly."
-      license_md: `- The site does not publish an explicit licence for API responses.
-- Quotes are attributed to their original speakers/authors; preserve that attribution when displaying them.
-- The collection is curated by Chris Coyier — a courtesy link back to [quotesondesign.com](https://quotesondesign.com/) is appropriate.
-- CORS is not enabled, so calls must be made server-side rather than from the browser.`
-      about_md: `[Quotes on Design](https://quotesondesign.com/) is a long-running collection of short quotations about design, typography, craft and creative practice, curated by Chris Coyier. The site is built on WordPress, and each quote is stored as a regular WordPress post, which means the public [WordPress REST API](https://developer.wordpress.org/rest-api/) at \`https://quotesondesign.com/wp-json/wp/v2\` is the de-facto API for the collection.
-
-What you can do with it:
-
-- List quotes via \`GET /posts\` with the usual WP REST query parameters (\`per_page\`, \`page\`, \`search\`, \`orderby\`).
-- Fetch a single quote with \`GET /posts/{id}\`.
-- Pull a random selection with \`GET /posts?orderby=rand\` (historically the canonical "random quote" call, though reliability has varied over time).
-- Each post returns the quote body in \`content.rendered\` and the attributed author in \`title.rendered\`.
-
-Operational notes: there is no authentication, no documented rate limit, and CORS is not enabled — so requests are best made from a server or build step rather than directly from a browser. Because the endpoint is just WordPress, any standard WP REST client (or plain \`fetch\`) works.`
-      entity_desc: {
-        post: "A single design quote stored as a WordPress post, exposed under `GET /posts` and `GET /posts/{id}`; the quote text lives in `content.rendered` and the attributed author in `title.rendered`."
-      }
-      auth: false
     }
   }
 }
+

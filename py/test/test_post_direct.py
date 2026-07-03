@@ -109,12 +109,14 @@ def _post_direct_setup(mockres):
     env = runner.env_override({
         "QUOTESONDESIGN_TEST_POST_ENTID": {},
         "QUOTESONDESIGN_TEST_LIVE": "FALSE",
+        "QUOTESONDESIGN_APIKEY": "NONE",
     })
 
     live = env.get("QUOTESONDESIGN_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("QUOTESONDESIGN_APIKEY"),
         }
         client = QuotesOnDesignSDK(merged_opts)
         return {

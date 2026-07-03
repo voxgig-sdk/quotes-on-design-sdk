@@ -1,21 +1,8 @@
 # QuotesOnDesign SDK
 
-Fetch design-related quotes curated by Chris Coyier, served through the standard WordPress REST API
+Quotes on Design API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Quotes on Design API
-
-[Quotes on Design](https://quotesondesign.com/) is a long-running collection of short quotations about design, typography, craft and creative practice, curated by Chris Coyier. The site is built on WordPress, and each quote is stored as a regular WordPress post, which means the public [WordPress REST API](https://developer.wordpress.org/rest-api/) at `https://quotesondesign.com/wp-json/wp/v2` is the de-facto API for the collection.
-
-What you can do with it:
-
-- List quotes via `GET /posts` with the usual WP REST query parameters (`per_page`, `page`, `search`, `orderby`).
-- Fetch a single quote with `GET /posts/{id}`.
-- Pull a random selection with `GET /posts?orderby=rand` (historically the canonical "random quote" call, though reliability has varied over time).
-- Each post returns the quote body in `content.rendered` and the attributed author in `title.rendered`.
-
-Operational notes: there is no authentication, no documented rate limit, and CORS is not enabled — so requests are best made from a server or build step rather than directly from a browser. Because the endpoint is just WordPress, any standard WP REST client (or plain `fetch`) works.
 
 ## Try it
 
@@ -49,29 +36,31 @@ gem install quotes-on-design-sdk
 luarocks install quotes-on-design-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { QuotesOnDesignSDK } from 'quotes-on-design'
 
-const client = new QuotesOnDesignSDK({})
+const client = new QuotesOnDesignSDK({
+  apikey: process.env.QUOTES-ON-DESIGN_APIKEY,
+})
 
 // List all posts
 const posts = await client.Post().list()
+console.log(posts.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -101,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Post** | A single design quote stored as a WordPress post, exposed under `GET /posts` and `GET /posts/{id}`; the quote text lives in `content.rendered` and the attributed author in `title.rendered`. | `/posts/` |
+| **Post** |  | `/posts/` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -111,17 +100,20 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from quotesondesign_sdk import QuotesOnDesignSDK
 
-client = QuotesOnDesignSDK({})
+client = QuotesOnDesignSDK({
+    "apikey": os.environ.get("QUOTES-ON-DESIGN_APIKEY"),
+})
 
 # List all posts
-posts, err = client.Post(None).list(None, None)
+posts, err = client.Post().list()
+print(posts)
 
 # Load a specific post
-post, err = client.Post(None).load(
-    {"id": "example_id"}, None
-)
+post, err = client.Post().load({"id": "example_id"})
+print(post)
 ```
 
 ### PHP
@@ -130,15 +122,17 @@ post, err = client.Post(None).load(
 <?php
 require_once 'quotesondesign_sdk.php';
 
-$client = new QuotesOnDesignSDK([]);
+$client = new QuotesOnDesignSDK([
+    "apikey" => getenv("QUOTES-ON-DESIGN_APIKEY"),
+]);
 
 // List all posts
-[$posts, $err] = $client->Post(null)->list(null, null);
+[$posts, $err] = $client->Post()->list();
+print_r($posts);
 
 // Load a specific post
-[$post, $err] = $client->Post(null)->load(
-    ["id" => "example_id"], null
-);
+[$post, $err] = $client->Post()->load(["id" => "example_id"]);
+print_r($post);
 ```
 
 ### Golang
@@ -146,10 +140,13 @@ $client = new QuotesOnDesignSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/quotes-on-design-sdk/go"
 
-client := sdk.NewQuotesOnDesignSDK(map[string]any{})
+client := sdk.NewQuotesOnDesignSDK(map[string]any{
+    "apikey": os.Getenv("QUOTES-ON-DESIGN_APIKEY"),
+})
 
 // List all posts
 posts, err := client.Post(nil).List(nil, nil)
+fmt.Println(posts)
 ```
 
 ### Ruby
@@ -157,15 +154,17 @@ posts, err := client.Post(nil).List(nil, nil)
 ```ruby
 require_relative "QuotesOnDesign_sdk"
 
-client = QuotesOnDesignSDK.new({})
+client = QuotesOnDesignSDK.new({
+  "apikey" => ENV["QUOTES-ON-DESIGN_APIKEY"],
+})
 
 # List all posts
-posts, err = client.Post(nil).list(nil, nil)
+posts, err = client.Post().list
+puts posts
 
 # Load a specific post
-post, err = client.Post(nil).load(
-  { "id" => "example_id" }, nil
-)
+post, err = client.Post().load({ "id" => "example_id" })
+puts post
 ```
 
 ### Lua
@@ -173,15 +172,17 @@ post, err = client.Post(nil).load(
 ```lua
 local sdk = require("quotes-on-design_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("QUOTES-ON-DESIGN_APIKEY"),
+})
 
 -- List all posts
-local posts, err = client:Post(nil):list(nil, nil)
+local posts, err = client:Post():list()
+print(posts)
 
 -- Load a specific post
-local post, err = client:Post(nil):load(
-  { id = "example_id" }, nil
-)
+local post, err = client:Post():load({ id = "example_id" })
+print(post)
 ```
 
 ## Unit testing in offline mode
@@ -200,25 +201,21 @@ const result = await client.Post().load({ id: 'test01' })
 ### Python
 
 ```python
-client = QuotesOnDesignSDK.test(None, None)
-result, err = client.Post(None).load(
-    {"id": "test01"}, None
-)
+client = QuotesOnDesignSDK.test()
+result, err = client.Post().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = QuotesOnDesignSDK::test(null, null);
-[$result, $err] = $client->Post(null)->load(
-    ["id" => "test01"], null
-);
+$client = QuotesOnDesignSDK::test();
+[$result, $err] = $client->Post()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Post(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -227,19 +224,15 @@ result, err := client.Post(nil).Load(
 ### Ruby
 
 ```ruby
-client = QuotesOnDesignSDK.test(nil, nil)
-result, err = client.Post(nil).load(
-  { "id" => "test01" }, nil
-)
+client = QuotesOnDesignSDK.test
+result, err = client.Post().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Post(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Post():load({ id = "test01" })
 ```
 
 ## How it works
@@ -343,16 +336,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Quotes on Design API
-
-- Upstream: [https://quotesondesign.com/](https://quotesondesign.com/)
-- API docs: [https://developer.wordpress.org/rest-api/reference/posts/](https://developer.wordpress.org/rest-api/reference/posts/)
-
-- The site does not publish an explicit licence for API responses.
-- Quotes are attributed to their original speakers/authors; preserve that attribution when displaying them.
-- The collection is curated by Chris Coyier — a courtesy link back to [quotesondesign.com](https://quotesondesign.com/) is appropriate.
-- CORS is not enabled, so calls must be made server-side rather than from the browser.
 
 ---
 

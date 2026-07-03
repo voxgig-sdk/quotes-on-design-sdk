@@ -96,6 +96,7 @@ function post_basic_setup($extra)
         "QUOTESONDESIGN_TEST_POST_ENTID" => $idmap,
         "QUOTESONDESIGN_TEST_LIVE" => "FALSE",
         "QUOTESONDESIGN_TEST_EXPLAIN" => "FALSE",
+        "QUOTESONDESIGN_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -107,6 +108,7 @@ function post_basic_setup($extra)
     if ($env["QUOTESONDESIGN_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["QUOTESONDESIGN_APIKEY"],
             ],
             $extra ?? [],
         ]);

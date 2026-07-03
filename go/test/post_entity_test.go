@@ -135,6 +135,7 @@ func postBasicSetup(extra map[string]any) *entityTestSetup {
 		"QUOTESONDESIGN_TEST_POST_ENTID": idmap,
 		"QUOTESONDESIGN_TEST_LIVE":      "FALSE",
 		"QUOTESONDESIGN_TEST_EXPLAIN":   "FALSE",
+		"QUOTESONDESIGN_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["QUOTESONDESIGN_TEST_POST_ENTID"])
@@ -145,6 +146,7 @@ func postBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["QUOTESONDESIGN_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["QUOTESONDESIGN_APIKEY"],
 			},
 			extra,
 		})

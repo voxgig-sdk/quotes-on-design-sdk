@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## PostEntity
 
 ```php
-$post = $client->post();
+$post = $client->Post();
 ```
 
 ### Fields
@@ -123,7 +123,7 @@ $post = $client->post();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->post()->list([]);
+$results = $client->Post()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -131,7 +131,7 @@ $results = $client->post()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->post()->load(["id" => "post_id"]);
+$result = $client->Post()->load(["id" => "post_id"]);
 ```
 
 ### Common Methods

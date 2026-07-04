@@ -4,68 +4,69 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Post:
-    author: Optional[int] = None
-    category: Optional[list] = None
-    comment_status: Optional[str] = None
-    content: Optional[dict] = None
-    date: Optional[str] = None
-    date_gmt: Optional[str] = None
-    excerpt: Optional[dict] = None
-    featured_media: Optional[int] = None
-    format: Optional[str] = None
-    guid: Optional[dict] = None
-    id: Optional[int] = None
-    link: Optional[str] = None
-    meta: Optional[dict] = None
-    modified: Optional[str] = None
-    modified_gmt: Optional[str] = None
-    ping_status: Optional[str] = None
-    slug: Optional[str] = None
-    status: Optional[str] = None
-    sticky: Optional[bool] = None
-    tag: Optional[list] = None
-    template: Optional[str] = None
-    title: Optional[dict] = None
-    type: Optional[str] = None
+class Post(TypedDict, total=False):
+    author: int
+    category: list
+    comment_status: str
+    content: dict
+    date: str
+    date_gmt: str
+    excerpt: dict
+    featured_media: int
+    format: str
+    guid: dict
+    id: int
+    link: str
+    meta: dict
+    modified: str
+    modified_gmt: str
+    ping_status: str
+    slug: str
+    status: str
+    sticky: bool
+    tag: list
+    template: str
+    title: dict
+    type: str
 
 
-@dataclass
-class PostLoadMatch:
+class PostLoadMatch(TypedDict):
     id: int
 
 
-@dataclass
-class PostListMatch:
-    author: Optional[int] = None
-    category: Optional[list] = None
-    comment_status: Optional[str] = None
-    content: Optional[dict] = None
-    date: Optional[str] = None
-    date_gmt: Optional[str] = None
-    excerpt: Optional[dict] = None
-    featured_media: Optional[int] = None
-    format: Optional[str] = None
-    guid: Optional[dict] = None
-    id: Optional[int] = None
-    link: Optional[str] = None
-    meta: Optional[dict] = None
-    modified: Optional[str] = None
-    modified_gmt: Optional[str] = None
-    ping_status: Optional[str] = None
-    slug: Optional[str] = None
-    status: Optional[str] = None
-    sticky: Optional[bool] = None
-    tag: Optional[list] = None
-    template: Optional[str] = None
-    title: Optional[dict] = None
-    type: Optional[str] = None
-
+class PostListMatch(TypedDict, total=False):
+    author: int
+    category: list
+    comment_status: str
+    content: dict
+    date: str
+    date_gmt: str
+    excerpt: dict
+    featured_media: int
+    format: str
+    guid: dict
+    id: int
+    link: str
+    meta: dict
+    modified: str
+    modified_gmt: str
+    ping_status: str
+    slug: str
+    status: str
+    sticky: bool
+    tag: list
+    template: str
+    title: dict
+    type: str

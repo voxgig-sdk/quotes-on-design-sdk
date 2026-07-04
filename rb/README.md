@@ -28,16 +28,14 @@ require_relative "QuotesOnDesign_sdk"
 client = QuotesOnDesignSDK.new
 ```
 
-### 2. List posts
+### 2. List post records
 
 ```ruby
 begin
-  result = client.post.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Post records — iterate directly.
+  posts = client.Post.list
+  posts.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -48,8 +46,9 @@ end
 
 ```ruby
 begin
-  result = client.post.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Post record (raises on error).
+  post = client.Post.load({ "id" => "example_id" })
+  puts post
 rescue => err
   warn "load failed: #{err}"
 end
@@ -96,13 +95,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = QuotesOnDesignSDK.test
+client = QuotesOnDesignSDK.test({
+  "entity" => { "post" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.post.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+post = client.Post.load({ "id" => "test01" })
+puts post
 ```
 
 ### Use a custom fetch function
@@ -256,7 +259,7 @@ API path: `/posts/`
 
 ### Post
 
-Create an instance: `const post = client.post`
+Create an instance: `post = client.Post`
 
 #### Operations
 
@@ -295,14 +298,16 @@ Create an instance: `const post = client.post`
 
 #### Example: Load
 
-```ts
-const post = await client.post.load({ id: 'post_id' })
+```ruby
+# load returns the bare Post record (raises on error).
+post = client.Post.load({ "id" => "post_id" })
 ```
 
 #### Example: List
 
-```ts
-const posts = await client.post.list()
+```ruby
+# list returns an Array of Post records (raises on error).
+posts = client.Post.list
 ```
 
 
@@ -377,7 +382,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-post = client.post
+post = client.Post
 post.load({ "id" => "example_id" })
 
 # post.data_get now returns the loaded post data

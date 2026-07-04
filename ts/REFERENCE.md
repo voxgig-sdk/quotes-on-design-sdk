@@ -109,7 +109,7 @@ Alias for `QuotesOnDesignSDK.test()`.
 ## PostEntity
 
 ```ts
-const post = client.post
+const post = client.Post()
 ```
 
 ### Fields
@@ -147,7 +147,7 @@ const post = client.post
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.post.list()
+const results = await client.Post().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -155,7 +155,7 @@ const results = await client.post.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.post.load({ id: 'post_id' })
+const result = await client.Post().load({ id: 'post_id' })
 ```
 
 ### Common Methods

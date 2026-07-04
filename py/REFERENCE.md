@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## PostEntity
 
 ```python
-post = client.post
+post = client.Post()
 ```
 
 ### Fields
@@ -118,7 +118,9 @@ post = client.post
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.post.list({})
+results = client.Post().list({})
+for post in results:
+    print(post)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -126,7 +128,7 @@ results = client.post.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.post.load({"id": "post_id"})
+result = client.Post().load({"id": "post_id"})
 ```
 
 ### Common Methods

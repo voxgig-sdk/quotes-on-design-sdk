@@ -31,24 +31,28 @@ from quotesondesign_sdk import QuotesOnDesignSDK
 client = QuotesOnDesignSDK()
 ```
 
-### 2. List posts
+### 2. List post records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.post.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    posts = client.Post().list({})
+    for post in posts:
+        print(post)
 except Exception as err:
     print(f"list failed: {err}")
 ```
 
 ### 3. Load a post
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.post.load({"id": "example_id"})
-    print(result)
+    post = client.Post().load({"id": "example_id"})
+    print(post)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -96,8 +100,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = QuotesOnDesignSDK.test()
 
-result = client.post.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+post = client.Post().load({"id": "test01"})
+# post contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -252,7 +257,7 @@ API path: `/posts/`
 
 ### Post
 
-Create an instance: `const post = client.post`
+Create an instance: `post = client.Post()`
 
 #### Operations
 
@@ -291,14 +296,14 @@ Create an instance: `const post = client.post`
 
 #### Example: Load
 
-```ts
-const post = await client.post.load({ id: 'post_id' })
+```python
+post = client.Post().load({"id": "post_id"})
 ```
 
 #### Example: List
 
-```ts
-const posts = await client.post.list()
+```python
+posts = client.Post().list({})
 ```
 
 
@@ -372,7 +377,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-post = client.post
+post = client.Post()
 post.load({"id": "example_id"})
 
 # post.data_get() now returns the loaded post data

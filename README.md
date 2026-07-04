@@ -26,9 +26,11 @@ import { QuotesOnDesignSDK } from '@voxgig-sdk/quotes-on-design'
 
 const client = new QuotesOnDesignSDK()
 
-// List all posts
-const posts = await client.post.list()
-console.log(posts.data)
+// List all posts (returns Post[])
+const posts = await client.Post().list()
+for (const post of posts) {
+  console.log(post)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,12 +85,13 @@ from quotesondesign_sdk import QuotesOnDesignSDK
 
 client = QuotesOnDesignSDK()
 
-# List all posts
-posts = client.post.list()
-print(posts)
+# List all posts (returns a list, raises on error)
+posts = client.Post().list({})
+for post in posts:
+    print(post)
 
-# Load a specific post
-post = client.post.load({"id": "example_id"})
+# Load a specific post (returns the record, raises on error)
+post = client.Post().load({"id": "example_id"})
 print(post)
 ```
 
@@ -100,12 +103,12 @@ require_once 'quotesondesign_sdk.php';
 
 $client = new QuotesOnDesignSDK();
 
-// List all posts (throws on error)
-$posts = $client->post()->list();
+// List all posts (returns an array; throws on error)
+$posts = $client->Post()->list();
 print_r($posts);
 
-// Load a specific post
-$post = $client->post()->load(["id" => "example_id"]);
+// Load a specific post (returns the bare record; throws on error)
+$post = $client->Post()->load(["id" => "example_id"]);
 print_r($post);
 ```
 
@@ -128,12 +131,12 @@ require_relative "QuotesOnDesign_sdk"
 
 client = QuotesOnDesignSDK.new
 
-# List all posts
-posts = client.post.list
+# List all posts (returns an Array; raises on error)
+posts = client.Post.list
 puts posts
 
-# Load a specific post
-post = client.post.load({ "id" => "example_id" })
+# Load a specific post (returns the bare record; raises on error)
+post = client.Post.load({ "id" => "example_id" })
 puts post
 ```
 
@@ -145,11 +148,11 @@ local sdk = require("quotes-on-design_sdk")
 local client = sdk.new()
 
 -- List all posts
-local posts, err = client:post():list()
+local posts, err = client:Post():list()
 print(posts)
 
 -- Load a specific post
-local post, err = client:post():load({ id = "example_id" })
+local post, err = client:Post():load({ id = "example_id" })
 print(post)
 ```
 
@@ -162,22 +165,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = QuotesOnDesignSDK.test()
-const result = await client.post.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const post = await client.Post().load({ id: 1 })
+// post is a bare Post populated with mock data
+console.log(post)
 ```
 
 ### Python
 
 ```python
 client = QuotesOnDesignSDK.test()
-result = client.post.load({"id": "test01"})
+post = client.Post().load({"id": "test01"})
+print(post)
 ```
 
 ### PHP
 
 ```php
-$client = QuotesOnDesignSDK::test();
-$result = $client->post()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = QuotesOnDesignSDK::test([
+    "entity" => ["post" => ["test01" => ["id" => "test01"]]],
+]);
+$post = $client->Post()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -192,15 +200,18 @@ result, err := client.Post(nil).Load(
 ### Ruby
 
 ```ruby
-client = QuotesOnDesignSDK.test
-result = client.post.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = QuotesOnDesignSDK.test({
+  "entity" => { "post" => { "test01" => { "id" => "test01" } } },
+})
+post = client.Post.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:post():load({ id = "test01" })
+local result, err = client:Post():load({ id = "test01" })
 ```
 
 ## How it works
@@ -248,6 +259,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

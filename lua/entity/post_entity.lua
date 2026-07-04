@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch PostLoadMatch
+---@param ctrl? table
+---@return Post
+---@return string? err
 function PostEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -104,6 +108,10 @@ end
 
 
 
+---@param reqmatch PostListMatch
+---@param ctrl? table
+---@return Post[]
+---@return string? err
 function PostEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

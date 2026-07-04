@@ -194,14 +194,12 @@ func postDirectSetup(mockres any) *postDirectSetupResult {
 	env := envOverride(map[string]any{
 		"QUOTESONDESIGN_TEST_POST_ENTID": map[string]any{},
 		"QUOTESONDESIGN_TEST_LIVE":    "FALSE",
-		"QUOTESONDESIGN_APIKEY":       "NONE",
 	})
 
 	live := env["QUOTESONDESIGN_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["QUOTESONDESIGN_APIKEY"],
 		}
 		client := sdk.NewQuotesOnDesignSDK(mergedOpts)
 

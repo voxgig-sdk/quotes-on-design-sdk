@@ -50,16 +50,14 @@ class PostEntityTest extends TestCase
         $post_ref01_ent = $client->Post(null);
         $post_ref01_match = [];
 
-        [$post_ref01_list_result, $err] = $post_ref01_ent->list($post_ref01_match, null);
-        $this->assertNull($err);
+        $post_ref01_list_result = $post_ref01_ent->list($post_ref01_match, null);
         $this->assertIsArray($post_ref01_list_result);
 
         // LOAD
         $post_ref01_match_dt0 = [
             "id" => $post_ref01_data["id"],
         ];
-        [$post_ref01_data_dt0_loaded, $err] = $post_ref01_ent->load($post_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $post_ref01_data_dt0_loaded = $post_ref01_ent->load($post_ref01_match_dt0, null);
         $post_ref01_data_dt0_load_result = Helpers::to_map($post_ref01_data_dt0_loaded);
         $this->assertNotNull($post_ref01_data_dt0_load_result);
         $this->assertEquals($post_ref01_data_dt0_load_result["id"], $post_ref01_data["id"]);
@@ -96,7 +94,6 @@ function post_basic_setup($extra)
         "QUOTESONDESIGN_TEST_POST_ENTID" => $idmap,
         "QUOTESONDESIGN_TEST_LIVE" => "FALSE",
         "QUOTESONDESIGN_TEST_EXPLAIN" => "FALSE",
-        "QUOTESONDESIGN_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -108,7 +105,6 @@ function post_basic_setup($extra)
     if ($env["QUOTESONDESIGN_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["QUOTESONDESIGN_APIKEY"],
             ],
             $extra ?? [],
         ]);

@@ -245,6 +245,9 @@ func (sdk *QuotesOnDesignSDK) Direct(fetchargs map[string]any) (map[string]any, 
 }
 
 
+// Post returns a Post entity bound to this client.
+// Idiomatic usage: client.Post(nil).List(nil, nil) or
+// client.Post(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *QuotesOnDesignSDK) Post(data map[string]any) QuotesOnDesignEntity {
 	return NewPostEntityFunc(sdk, data)
 }

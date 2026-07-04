@@ -9,12 +9,9 @@ The Lua SDK for the QuotesOnDesign API — an entity-oriented client using Lua c
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-quotes-on-design
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/quotes-on-design-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("quotes-on-design_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("QUOTES-ON-DESIGN_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List posts
 
 ```lua
-local result, err = client:Post():list()
+local result, err = client:post():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -53,7 +48,7 @@ end
 ### 3. Load a post
 
 ```lua
-local result, err = client:Post():load({ id = "example_id" })
+local result, err = client:post():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -101,7 +96,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:QuotesOnDesign():load({ id = "test01" })
+local result, err = client:post():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -134,8 +129,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-QUOTES-ON-DESIGN_TEST_LIVE=TRUE
-QUOTES-ON-DESIGN_APIKEY=<your-key>
+QUOTES_ON_DESIGN_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -158,7 +152,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -257,7 +250,7 @@ API path: `/posts/`
 
 ### Post
 
-Create an instance: `const post = client.Post()`
+Create an instance: `const post = client.post`
 
 #### Operations
 
@@ -297,13 +290,13 @@ Create an instance: `const post = client.Post()`
 #### Example: Load
 
 ```ts
-const post = await client.Post().load({ id: 'post_id' })
+const post = await client.post.load({ id: 'post_id' })
 ```
 
 #### Example: List
 
 ```ts
-const posts = await client.Post().list()
+const posts = await client.post.list()
 ```
 
 
@@ -378,11 +371,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local post = client:post()
+post:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- post:data_get() now returns the loaded post data
+-- post:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

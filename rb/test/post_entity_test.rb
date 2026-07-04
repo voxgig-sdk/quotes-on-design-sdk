@@ -43,16 +43,14 @@ class PostEntityTest < Minitest::Test
     post_ref01_ent = client.Post(nil)
     post_ref01_match = {}
 
-    post_ref01_list_result, err = post_ref01_ent.list(post_ref01_match, nil)
-    assert_nil err
+    post_ref01_list_result = post_ref01_ent.list(post_ref01_match, nil)
     assert post_ref01_list_result.is_a?(Array)
 
     # LOAD
     post_ref01_match_dt0 = {
       "id" => post_ref01_data["id"],
     }
-    post_ref01_data_dt0_loaded, err = post_ref01_ent.load(post_ref01_match_dt0, nil)
-    assert_nil err
+    post_ref01_data_dt0_loaded = post_ref01_ent.load(post_ref01_match_dt0, nil)
     post_ref01_data_dt0_load_result = Helpers.to_map(post_ref01_data_dt0_loaded)
     assert !post_ref01_data_dt0_load_result.nil?
     assert_equal post_ref01_data_dt0_load_result["id"], post_ref01_data["id"]
@@ -93,7 +91,6 @@ def post_basic_setup(extra)
     "QUOTESONDESIGN_TEST_POST_ENTID" => idmap,
     "QUOTESONDESIGN_TEST_LIVE" => "FALSE",
     "QUOTESONDESIGN_TEST_EXPLAIN" => "FALSE",
-    "QUOTESONDESIGN_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -105,7 +102,6 @@ def post_basic_setup(extra)
   if env["QUOTESONDESIGN_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["QUOTESONDESIGN_APIKEY"],
       },
       extra || {},
     ])

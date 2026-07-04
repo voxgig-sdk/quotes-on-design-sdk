@@ -102,7 +102,6 @@ function post_basic_setup(extra)
     ["QUOTESONDESIGN_TEST_POST_ENTID"] = idmap,
     ["QUOTESONDESIGN_TEST_LIVE"] = "FALSE",
     ["QUOTESONDESIGN_TEST_EXPLAIN"] = "FALSE",
-    ["QUOTESONDESIGN_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -114,7 +113,6 @@ function post_basic_setup(extra)
   if env["QUOTESONDESIGN_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["QUOTESONDESIGN_APIKEY"],
       },
       extra or {},
     })

@@ -14,9 +14,6 @@ local function make_config()
     },
     options = {
       base = "https://quotesondesign.com/wp-json/wp/v2",
-      auth = {
-        prefix = "Bearer",
-      },
       headers = {
         ["content-type"] = "application/json",
       },
@@ -274,6 +271,7 @@ local function make_config()
                       ["orig"] = "id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {

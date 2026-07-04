@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "https://quotesondesign.com/wp-json/wp/v2",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },
@@ -275,6 +272,7 @@ def make_config():
                       "orig": "id",
                       "reqd": True,
                       "type": "`$INTEGER`",
+                      "index$": 0,
                     },
                   ],
                   "query": [

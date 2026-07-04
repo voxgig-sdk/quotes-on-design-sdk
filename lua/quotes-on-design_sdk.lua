@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:post():list() / client:post():load({ id = ... })
+function QuotesOnDesignSDK:post(data)
+  local EntityMod = require("entity.post_entity")
+  if data == nil then
+    if self._post == nil then
+      self._post = EntityMod.new(self, nil)
+    end
+    return self._post
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:post() instead.
 function QuotesOnDesignSDK:Post(data)
   local EntityMod = require("entity.post_entity")
   return EntityMod.new(self, data)

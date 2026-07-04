@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         name: "Quotes on Design"
         url: "https://quotesondesign.com"

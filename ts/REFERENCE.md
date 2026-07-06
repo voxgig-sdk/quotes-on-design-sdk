@@ -116,29 +116,29 @@ const post = client.Post()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$INTEGER`` | No |  |
-| `category` | ``$ARRAY`` | No |  |
-| `comment_status` | ``$STRING`` | No |  |
-| `content` | ``$OBJECT`` | No |  |
-| `date` | ``$STRING`` | No |  |
-| `date_gmt` | ``$STRING`` | No |  |
-| `excerpt` | ``$OBJECT`` | No |  |
-| `featured_media` | ``$INTEGER`` | No |  |
-| `format` | ``$STRING`` | No |  |
-| `guid` | ``$OBJECT`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `link` | ``$STRING`` | No |  |
-| `meta` | ``$OBJECT`` | No |  |
-| `modified` | ``$STRING`` | No |  |
-| `modified_gmt` | ``$STRING`` | No |  |
-| `ping_status` | ``$STRING`` | No |  |
-| `slug` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `sticky` | ``$BOOLEAN`` | No |  |
-| `tag` | ``$ARRAY`` | No |  |
-| `template` | ``$STRING`` | No |  |
-| `title` | ``$OBJECT`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `author` | `number` | No |  |
+| `category` | `any[]` | No |  |
+| `comment_status` | `string` | No |  |
+| `content` | `Record<string, any>` | No |  |
+| `date` | `string` | No |  |
+| `date_gmt` | `string` | No |  |
+| `excerpt` | `Record<string, any>` | No |  |
+| `featured_media` | `number` | No |  |
+| `format` | `string` | No |  |
+| `guid` | `Record<string, any>` | No |  |
+| `id` | `number` | No |  |
+| `link` | `string` | No |  |
+| `meta` | `Record<string, any>` | No |  |
+| `modified` | `string` | No |  |
+| `modified_gmt` | `string` | No |  |
+| `ping_status` | `string` | No |  |
+| `slug` | `string` | No |  |
+| `status` | `string` | No |  |
+| `sticky` | `boolean` | No |  |
+| `tag` | `any[]` | No |  |
+| `template` | `string` | No |  |
+| `title` | `Record<string, any>` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
@@ -155,7 +155,7 @@ const results = await client.Post().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Post().load({ id: 'post_id' })
+const result = await client.Post().load({ id: 1 })
 ```
 
 ### Common Methods

@@ -8,7 +8,7 @@ Complete API reference for the QuotesOnDesign Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'quotes-on-design_sdk'
+require_relative 'QuotesOnDesign_sdk'
 
 client = QuotesOnDesignSDK.new(options)
 ```
@@ -93,38 +93,38 @@ post = client.Post
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$INTEGER`` | No |  |
-| `category` | ``$ARRAY`` | No |  |
-| `comment_status` | ``$STRING`` | No |  |
-| `content` | ``$OBJECT`` | No |  |
-| `date` | ``$STRING`` | No |  |
-| `date_gmt` | ``$STRING`` | No |  |
-| `excerpt` | ``$OBJECT`` | No |  |
-| `featured_media` | ``$INTEGER`` | No |  |
-| `format` | ``$STRING`` | No |  |
-| `guid` | ``$OBJECT`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `link` | ``$STRING`` | No |  |
-| `meta` | ``$OBJECT`` | No |  |
-| `modified` | ``$STRING`` | No |  |
-| `modified_gmt` | ``$STRING`` | No |  |
-| `ping_status` | ``$STRING`` | No |  |
-| `slug` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `sticky` | ``$BOOLEAN`` | No |  |
-| `tag` | ``$ARRAY`` | No |  |
-| `template` | ``$STRING`` | No |  |
-| `title` | ``$OBJECT`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `author` | `Integer` | No |  |
+| `category` | `Array` | No |  |
+| `comment_status` | `String` | No |  |
+| `content` | `Hash` | No |  |
+| `date` | `String` | No |  |
+| `date_gmt` | `String` | No |  |
+| `excerpt` | `Hash` | No |  |
+| `featured_media` | `Integer` | No |  |
+| `format` | `String` | No |  |
+| `guid` | `Hash` | No |  |
+| `id` | `Integer` | No |  |
+| `link` | `String` | No |  |
+| `meta` | `Hash` | No |  |
+| `modified` | `String` | No |  |
+| `modified_gmt` | `String` | No |  |
+| `ping_status` | `String` | No |  |
+| `slug` | `String` | No |  |
+| `status` | `String` | No |  |
+| `sticky` | `Boolean` | No |  |
+| `tag` | `Array` | No |  |
+| `template` | `String` | No |  |
+| `title` | `Hash` | No |  |
+| `type` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Post.list(nil)
+results = client.Post.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`

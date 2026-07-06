@@ -8,7 +8,7 @@ Complete API reference for the QuotesOnDesign Python SDK.
 ### Constructor
 
 ```python
-from quotes-on-design_sdk import QuotesOnDesignSDK
+from quotesondesign_sdk import QuotesOnDesignSDK
 
 client = QuotesOnDesignSDK(options)
 ```
@@ -87,38 +87,38 @@ post = client.Post()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$INTEGER`` | No |  |
-| `category` | ``$ARRAY`` | No |  |
-| `comment_status` | ``$STRING`` | No |  |
-| `content` | ``$OBJECT`` | No |  |
-| `date` | ``$STRING`` | No |  |
-| `date_gmt` | ``$STRING`` | No |  |
-| `excerpt` | ``$OBJECT`` | No |  |
-| `featured_media` | ``$INTEGER`` | No |  |
-| `format` | ``$STRING`` | No |  |
-| `guid` | ``$OBJECT`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `link` | ``$STRING`` | No |  |
-| `meta` | ``$OBJECT`` | No |  |
-| `modified` | ``$STRING`` | No |  |
-| `modified_gmt` | ``$STRING`` | No |  |
-| `ping_status` | ``$STRING`` | No |  |
-| `slug` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `sticky` | ``$BOOLEAN`` | No |  |
-| `tag` | ``$ARRAY`` | No |  |
-| `template` | ``$STRING`` | No |  |
-| `title` | ``$OBJECT`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `author` | `int` | No |  |
+| `category` | `list` | No |  |
+| `comment_status` | `str` | No |  |
+| `content` | `dict` | No |  |
+| `date` | `str` | No |  |
+| `date_gmt` | `str` | No |  |
+| `excerpt` | `dict` | No |  |
+| `featured_media` | `int` | No |  |
+| `format` | `str` | No |  |
+| `guid` | `dict` | No |  |
+| `id` | `int` | No |  |
+| `link` | `str` | No |  |
+| `meta` | `dict` | No |  |
+| `modified` | `str` | No |  |
+| `modified_gmt` | `str` | No |  |
+| `ping_status` | `str` | No |  |
+| `slug` | `str` | No |  |
+| `status` | `str` | No |  |
+| `sticky` | `bool` | No |  |
+| `tag` | `list` | No |  |
+| `template` | `str` | No |  |
+| `title` | `dict` | No |  |
+| `type` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Post().list({})
+results = client.Post().list()
 for post in results:
     print(post)
 ```

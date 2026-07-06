@@ -40,8 +40,7 @@ type PostLoadMatch struct {
 	Id int `json:"id"`
 }
 
-// PostListMatch mirrors the post fields as an all-optional match
-// filter (Go analog of Partial<Post>).
+// PostListMatch is the typed request payload for Post.ListTyped.
 type PostListMatch struct {
 	Author *int `json:"author,omitempty"`
 	Category *[]any `json:"category,omitempty"`

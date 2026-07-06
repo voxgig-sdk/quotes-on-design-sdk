@@ -8,7 +8,7 @@ Complete API reference for the QuotesOnDesign PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/quotes-on-design_sdk.php';
+require_once __DIR__ . '/quotesondesign_sdk.php';
 
 $client = new QuotesOnDesignSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = QuotesOnDesignSDK::test();
 
 Create a new `PostEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): QuotesOnDesignUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,38 +92,38 @@ $post = $client->Post();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$INTEGER`` | No |  |
-| `category` | ``$ARRAY`` | No |  |
-| `comment_status` | ``$STRING`` | No |  |
-| `content` | ``$OBJECT`` | No |  |
-| `date` | ``$STRING`` | No |  |
-| `date_gmt` | ``$STRING`` | No |  |
-| `excerpt` | ``$OBJECT`` | No |  |
-| `featured_media` | ``$INTEGER`` | No |  |
-| `format` | ``$STRING`` | No |  |
-| `guid` | ``$OBJECT`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `link` | ``$STRING`` | No |  |
-| `meta` | ``$OBJECT`` | No |  |
-| `modified` | ``$STRING`` | No |  |
-| `modified_gmt` | ``$STRING`` | No |  |
-| `ping_status` | ``$STRING`` | No |  |
-| `slug` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `sticky` | ``$BOOLEAN`` | No |  |
-| `tag` | ``$ARRAY`` | No |  |
-| `template` | ``$STRING`` | No |  |
-| `title` | ``$OBJECT`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `author` | `int` | No |  |
+| `category` | `array` | No |  |
+| `comment_status` | `string` | No |  |
+| `content` | `array` | No |  |
+| `date` | `string` | No |  |
+| `date_gmt` | `string` | No |  |
+| `excerpt` | `array` | No |  |
+| `featured_media` | `int` | No |  |
+| `format` | `string` | No |  |
+| `guid` | `array` | No |  |
+| `id` | `int` | No |  |
+| `link` | `string` | No |  |
+| `meta` | `array` | No |  |
+| `modified` | `string` | No |  |
+| `modified_gmt` | `string` | No |  |
+| `ping_status` | `string` | No |  |
+| `slug` | `string` | No |  |
+| `status` | `string` | No |  |
+| `sticky` | `bool` | No |  |
+| `tag` | `array` | No |  |
+| `template` | `string` | No |  |
+| `title` | `array` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Post()->list([]);
+$results = $client->Post()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -136,19 +136,19 @@ $result = $client->Post()->load(["id" => "post_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -157,7 +157,7 @@ Set the entity match criteria.
 Create a new `PostEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

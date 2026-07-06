@@ -46,7 +46,7 @@ class PostLoadMatch
     public int $id;
 }
 
-/** Match filter for Post#list (any subset of Post fields). */
+/** Request payload for Post#list. */
 class PostListMatch
 {
     public ?int $author = null;

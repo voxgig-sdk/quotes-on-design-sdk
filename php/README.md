@@ -4,6 +4,8 @@
 
 The PHP SDK for the QuotesOnDesign API — an entity-oriented client using PHP conventions.
 
+The SDK exposes the API as capitalised, semantic **Entities** — for example `$client->Post()` — with named operations (`list`/`load`) instead of raw URL paths and query strings. Working with resources and verbs keeps call sites self-describing and reduces cognitive load.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -36,7 +38,7 @@ try {
     // list() returns an array of Post records — iterate directly.
     $posts = $client->Post()->list();
     foreach ($posts as $item) {
-        echo $item["id"] . " " . $item["name"] . "\n";
+        echo $item["id"] . " " . $item["author"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -52,6 +54,37 @@ try {
     print_r($post);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
+}
+```
+
+
+## Error handling
+
+Entity operations throw a `\Throwable` on failure, so wrap them in
+`try` / `catch`:
+
+```php
+try {
+    $posts = $client->Post()->list();
+} catch (\Throwable $err) {
+    echo "Error: " . $err->getMessage();
+}
+```
+
+`direct()` does **not** throw — it returns the result array. Branch on
+`ok`; on failure `status` holds the HTTP status (for error responses) and
+`err` holds a transport error, so read both defensively:
+
+```php
+$result = $client->direct([
+    "path" => "/api/resource/{id}",
+    "method" => "GET",
+    "params" => ["id" => "example_id"],
+]);
+
+if (! $result["ok"]) {
+    $err = $result["err"] ?? null;
+    echo "request failed: " . ($err ? $err->getMessage() : "HTTP " . $result["status"]);
 }
 ```
 
@@ -75,7 +108,10 @@ if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
 } else {
-    echo "Error: " . $result["err"]->getMessage();
+    // On an HTTP error status there is no err (only a transport failure sets
+    // it), so fall back to the status code.
+    $err = $result["err"] ?? null;
+    echo "Error: " . ($err ? $err->getMessage() : "HTTP " . $result["status"]);
 }
 ```
 
@@ -104,8 +140,8 @@ $client = QuotesOnDesignSDK::test([
     "entity" => ["post" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// load() returns the bare mock record (throws on error).
-$post = $client->Post()->load(["id" => "test01"]);
+// Entity ops return the bare mock record (throws on error).
+$post = $client->Post()->list();
 print_r($post);
 ```
 
@@ -194,10 +230,7 @@ All entities share the same interface.
 | Method | Signature | Description |
 | --- | --- | --- |
 | `load` | `($reqmatch, $ctrl): array` | Load a single entity by match criteria. |
-| `list` | `($reqmatch, $ctrl): array` | List entities matching the criteria. |
-| `create` | `($reqdata, $ctrl): array` | Create a new entity. |
-| `update` | `($reqdata, $ctrl): array` | Update an existing entity. |
-| `remove` | `($reqmatch, $ctrl): array` | Remove an entity. |
+| `list` | `(?array $reqmatch = null, $ctrl): array` | List entities matching the criteria (call with no argument to list all). |
 | `data_get` | `(): array` | Get entity data. |
 | `data_set` | `($data): void` | Set entity data. |
 | `match_get` | `(): array` | Get entity match criteria. |
@@ -277,29 +310,29 @@ Create an instance: `$post = $client->Post();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | ``$INTEGER`` |  |
-| `category` | ``$ARRAY`` |  |
-| `comment_status` | ``$STRING`` |  |
-| `content` | ``$OBJECT`` |  |
-| `date` | ``$STRING`` |  |
-| `date_gmt` | ``$STRING`` |  |
-| `excerpt` | ``$OBJECT`` |  |
-| `featured_media` | ``$INTEGER`` |  |
-| `format` | ``$STRING`` |  |
-| `guid` | ``$OBJECT`` |  |
-| `id` | ``$INTEGER`` |  |
-| `link` | ``$STRING`` |  |
-| `meta` | ``$OBJECT`` |  |
-| `modified` | ``$STRING`` |  |
-| `modified_gmt` | ``$STRING`` |  |
-| `ping_status` | ``$STRING`` |  |
-| `slug` | ``$STRING`` |  |
-| `status` | ``$STRING`` |  |
-| `sticky` | ``$BOOLEAN`` |  |
-| `tag` | ``$ARRAY`` |  |
-| `template` | ``$STRING`` |  |
-| `title` | ``$OBJECT`` |  |
-| `type` | ``$STRING`` |  |
+| `author` | `int` |  |
+| `category` | `array` |  |
+| `comment_status` | `string` |  |
+| `content` | `array` |  |
+| `date` | `string` |  |
+| `date_gmt` | `string` |  |
+| `excerpt` | `array` |  |
+| `featured_media` | `int` |  |
+| `format` | `string` |  |
+| `guid` | `array` |  |
+| `id` | `int` |  |
+| `link` | `string` |  |
+| `meta` | `array` |  |
+| `modified` | `string` |  |
+| `modified_gmt` | `string` |  |
+| `ping_status` | `string` |  |
+| `slug` | `string` |  |
+| `status` | `string` |  |
+| `sticky` | `bool` |  |
+| `tag` | `array` |  |
+| `template` | `string` |  |
+| `title` | `array` |  |
+| `type` | `string` |  |
 
 #### Example: Load
 
@@ -316,12 +349,16 @@ $posts = $client->Post()->list();
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -338,8 +375,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as the second element in the return array.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -383,15 +421,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
 $post = $client->Post();
-$post->load(["id" => "example_id"]);
+$post->list();
 
-// $post->dataGet() now returns the loaded post data
-// $post->matchGet() returns the last match criteria
+// $post->data_get() now returns the post data from the last list
+// $post->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

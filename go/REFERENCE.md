@@ -97,29 +97,29 @@ post := client.Post(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$INTEGER`` | No |  |
-| `category` | ``$ARRAY`` | No |  |
-| `comment_status` | ``$STRING`` | No |  |
-| `content` | ``$OBJECT`` | No |  |
-| `date` | ``$STRING`` | No |  |
-| `date_gmt` | ``$STRING`` | No |  |
-| `excerpt` | ``$OBJECT`` | No |  |
-| `featured_media` | ``$INTEGER`` | No |  |
-| `format` | ``$STRING`` | No |  |
-| `guid` | ``$OBJECT`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `link` | ``$STRING`` | No |  |
-| `meta` | ``$OBJECT`` | No |  |
-| `modified` | ``$STRING`` | No |  |
-| `modified_gmt` | ``$STRING`` | No |  |
-| `ping_status` | ``$STRING`` | No |  |
-| `slug` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `sticky` | ``$BOOLEAN`` | No |  |
-| `tag` | ``$ARRAY`` | No |  |
-| `template` | ``$STRING`` | No |  |
-| `title` | ``$OBJECT`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `author` | `int` | No |  |
+| `category` | `[]any` | No |  |
+| `comment_status` | `string` | No |  |
+| `content` | `map[string]any` | No |  |
+| `date` | `string` | No |  |
+| `date_gmt` | `string` | No |  |
+| `excerpt` | `map[string]any` | No |  |
+| `featured_media` | `int` | No |  |
+| `format` | `string` | No |  |
+| `guid` | `map[string]any` | No |  |
+| `id` | `int` | No |  |
+| `link` | `string` | No |  |
+| `meta` | `map[string]any` | No |  |
+| `modified` | `string` | No |  |
+| `modified_gmt` | `string` | No |  |
+| `ping_status` | `string` | No |  |
+| `slug` | `string` | No |  |
+| `status` | `string` | No |  |
+| `sticky` | `bool` | No |  |
+| `tag` | `[]any` | No |  |
+| `template` | `string` | No |  |
+| `title` | `map[string]any` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 

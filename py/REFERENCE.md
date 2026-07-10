@@ -128,7 +128,7 @@ for post in results:
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Post().load({"id": "post_id"})
+result = client.Post().load({"id": 1})
 ```
 
 ### Common Methods

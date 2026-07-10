@@ -344,7 +344,7 @@ Create an instance: `post := client.Post(nil)`
 #### Example: Load
 
 ```go
-post, err := client.Post(nil).Load(map[string]any{"id": "post_id"}, nil)
+post, err := client.Post(nil).Load(map[string]any{"id": 1}, nil)
 if err != nil {
     panic(err)
 }

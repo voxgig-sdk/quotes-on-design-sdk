@@ -132,7 +132,7 @@ results = client.Post.list
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Post.load({ "id" => "post_id" })
+result = client.Post.load({ "id" => 1 })
 ```
 
 ### Common Methods

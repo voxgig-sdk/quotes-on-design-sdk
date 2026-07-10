@@ -50,7 +50,7 @@ end
 ### 3. Load a post
 
 ```lua
-local post, err = client:Post():load({ id = "example_id" })
+local post, err = client:Post():load({ id = 1 })
 if err then error(err) end
 print(post)
 ```
@@ -316,7 +316,7 @@ Create an instance: `local post = client:Post(nil)`
 #### Example: Load
 
 ```lua
-local post, err = client:Post():load({ id = "post_id" })
+local post, err = client:Post():load({ id = 1 })
 ```
 
 #### Example: List

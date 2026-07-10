@@ -49,7 +49,7 @@ end
 ```ruby
 begin
   # load returns the bare Post record (raises on error).
-  post = client.Post.load({ "id" => "example_id" })
+  post = client.Post.load({ "id" => 1 })
   puts post
 rescue => err
   warn "load failed: #{err}"
@@ -328,7 +328,7 @@ Create an instance: `post = client.Post`
 
 ```ruby
 # load returns the bare Post record (raises on error).
-post = client.Post.load({ "id" => "post_id" })
+post = client.Post.load({ "id" => 1 })
 ```
 
 #### Example: List

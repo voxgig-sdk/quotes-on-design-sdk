@@ -16,9 +16,9 @@ main: {
           url: "https://quotesondesign.com/wp-json/wp/v2"
         }
       ]
+      summary: "This API provides access to design-related quotes using the WordPress built-in REST API."
       title: "Quotes on Design API"
       version: "5.0.0"
+      website: "https://quotesondesign.com/api/"
     }
   }
-}
-

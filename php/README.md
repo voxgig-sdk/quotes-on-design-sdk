@@ -50,7 +50,7 @@ try {
 ```php
 try {
     // load() returns the bare Post record (throws on error).
-    $post = $client->Post()->load(["id" => "example_id"]);
+    $post = $client->Post()->load(["id" => 1]);
     print_r($post);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -338,7 +338,7 @@ Create an instance: `$post = $client->Post();`
 
 ```php
 // load() returns the bare Post record (throws on error).
-$post = $client->Post()->load(["id" => "post_id"]);
+$post = $client->Post()->load(["id" => 1]);
 ```
 
 #### Example: List

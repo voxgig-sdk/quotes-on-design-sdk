@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- QuotesOnDesign SDK exists test
 
 local sdk = require("quotes-on-design_sdk")
 

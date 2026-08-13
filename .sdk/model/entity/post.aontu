@@ -11,7 +11,7 @@ main: kit: entity: post: {
       type: "`$INTEGER`"
     }
     {
-      name: "category"
+      name: "categories"
       req: false
       type: "`$ARRAY`"
     }
@@ -101,7 +101,7 @@ main: kit: entity: post: {
       type: "`$BOOLEAN`"
     }
     {
-      name: "tag"
+      name: "tags"
       req: false
       type: "`$ARRAY`"
     }

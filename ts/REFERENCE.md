@@ -117,7 +117,7 @@ const post = client.Post()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `author` | `number` | No |  |
-| `category` | `any[]` | No |  |
+| `categories` | `any[]` | No |  |
 | `comment_status` | `string` | No |  |
 | `content` | `Record<string, any>` | No |  |
 | `date` | `string` | No |  |
@@ -135,7 +135,7 @@ const post = client.Post()
 | `slug` | `string` | No |  |
 | `status` | `string` | No |  |
 | `sticky` | `boolean` | No |  |
-| `tag` | `any[]` | No |  |
+| `tags` | `any[]` | No |  |
 | `template` | `string` | No |  |
 | `title` | `Record<string, any>` | No |  |
 | `type` | `string` | No |  |

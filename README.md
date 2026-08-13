@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = QuotesOnDesignSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = QuotesOnDesignSDK.test({
+  entity: {
+    post: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const posts = await client.Post().list()
-// posts is an array of bare Post records populated with mock data
+// posts is an array of Post entities, populated with mock data
+// — call posts[0].data() for the record itself
 console.log(posts)
 ```
 
@@ -110,7 +119,7 @@ import { QuotesOnDesignSDK } from '@voxgig-sdk/quotes-on-design'
 
 const client = new QuotesOnDesignSDK()
 
-// List all posts (returns Post[])
+// List all posts (returns PostEntity[] — .data() for the record)
 const posts = await client.Post().list()
 for (const post of posts) {
   console.log(post)
@@ -191,7 +200,7 @@ $client = new QuotesOnDesignSDK();
 $posts = $client->Post()->list();
 print_r($posts);
 
-// Load a specific post (returns the bare record; throws on error)
+// Load a specific post (returns the ENTITY; call data_get() for the record; throws on error)
 $post = $client->Post()->load(["id" => 1]);
 print_r($post);
 ```
@@ -222,7 +231,7 @@ client = QuotesOnDesignSDK.new
 posts = client.Post.list
 puts posts
 
-# Load a specific post (returns the bare record; raises on error)
+# Load a specific post (returns the ENTITY; call data_get for the record)
 post = client.Post.load({ "id" => 1 })
 puts post
 ```
@@ -359,6 +368,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://quotesondesign.com](https://quotesondesign.com)
 

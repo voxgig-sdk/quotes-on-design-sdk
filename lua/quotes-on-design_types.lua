@@ -8,7 +8,7 @@
 
 ---@class Post
 ---@field author? number
----@field category? table
+---@field categories? table
 ---@field comment_status? string
 ---@field content? table
 ---@field date? string
@@ -26,7 +26,7 @@
 ---@field slug? string
 ---@field status? string
 ---@field sticky? boolean
----@field tag? table
+---@field tags? table
 ---@field template? string
 ---@field title? table
 ---@field type? string
@@ -36,7 +36,7 @@
 
 ---@class PostListMatch
 ---@field author? number
----@field category? table
+---@field categories? table
 ---@field comment_status? string
 ---@field content? table
 ---@field date? string
@@ -54,7 +54,7 @@
 ---@field slug? string
 ---@field status? string
 ---@field sticky? boolean
----@field tag? table
+---@field tags? table
 ---@field template? string
 ---@field title? table
 ---@field type? string

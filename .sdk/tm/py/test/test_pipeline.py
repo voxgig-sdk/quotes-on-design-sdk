@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import QuotesOnDesignSDK
-from core.error import QuotesOnDesignError
-from core.result import QuotesOnDesignResult
-from core.response import QuotesOnDesignResponse
-from core.spec import QuotesOnDesignSpec
-from feature.base_feature import QuotesOnDesignBaseFeature
+from projectname_sdk.core.error import QuotesOnDesignError
+from projectname_sdk.core.result import QuotesOnDesignResult
+from projectname_sdk.core.response import QuotesOnDesignResponse
+from projectname_sdk.core.spec import QuotesOnDesignSpec
+from projectname_sdk.feature.base_feature import QuotesOnDesignBaseFeature
 
 
 def _client():

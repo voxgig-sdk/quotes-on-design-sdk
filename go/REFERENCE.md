@@ -99,7 +99,7 @@ fmt.Println(post.GetName()) // "post"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `author` | `int` | No |  |
-| `category` | `[]any` | No |  |
+| `categories` | `[]any` | No |  |
 | `comment_status` | `string` | No |  |
 | `content` | `map[string]any` | No |  |
 | `date` | `string` | No |  |
@@ -117,7 +117,7 @@ fmt.Println(post.GetName()) // "post"
 | `slug` | `string` | No |  |
 | `status` | `string` | No |  |
 | `sticky` | `bool` | No |  |
-| `tag` | `[]any` | No |  |
+| `tags` | `[]any` | No |  |
 | `template` | `string` | No |  |
 | `title` | `map[string]any` | No |  |
 | `type` | `string` | No |  |

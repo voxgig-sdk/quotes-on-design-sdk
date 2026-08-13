@@ -49,7 +49,7 @@ try {
 
 ```php
 try {
-    // load() returns the bare Post record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Post record (throws on error).
     $post = $client->Post()->load(["id" => 1]);
     print_r($post);
 } catch (\Throwable $err) {
@@ -140,7 +140,8 @@ $client = QuotesOnDesignSDK::test([
     "entity" => ["post" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $post = $client->Post()->list();
 print_r($post);
 ```
@@ -240,7 +241,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -263,7 +264,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `author` |  |
-| `category` |  |
+| `categories` |  |
 | `comment_status` |  |
 | `content` |  |
 | `date` |  |
@@ -281,7 +282,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `slug` |  |
 | `status` |  |
 | `sticky` |  |
-| `tag` |  |
+| `tags` |  |
 | `template` |  |
 | `title` |  |
 | `type` |  |
@@ -311,7 +312,7 @@ Create an instance: `$post = $client->Post();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `author` | `int` |  |
-| `category` | `array` |  |
+| `categories` | `array` |  |
 | `comment_status` | `string` |  |
 | `content` | `array` |  |
 | `date` | `string` |  |
@@ -329,7 +330,7 @@ Create an instance: `$post = $client->Post();`
 | `slug` | `string` |  |
 | `status` | `string` |  |
 | `sticky` | `bool` |  |
-| `tag` | `array` |  |
+| `tags` | `array` |  |
 | `template` | `string` |  |
 | `title` | `array` |  |
 | `type` | `string` |  |
@@ -337,7 +338,7 @@ Create an instance: `$post = $client->Post();`
 #### Example: Load
 
 ```php
-// load() returns the bare Post record (throws on error).
+// load() returns the ENTITY — call data_get() for the Post record (throws on error).
 $post = $client->Post()->load(["id" => 1]);
 ```
 

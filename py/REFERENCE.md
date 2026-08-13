@@ -88,7 +88,7 @@ post = client.Post()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `author` | `int` | No |  |
-| `category` | `list` | No |  |
+| `categories` | `list` | No |  |
 | `comment_status` | `str` | No |  |
 | `content` | `dict` | No |  |
 | `date` | `str` | No |  |
@@ -106,7 +106,7 @@ post = client.Post()
 | `slug` | `str` | No |  |
 | `status` | `str` | No |  |
 | `sticky` | `bool` | No |  |
-| `tag` | `list` | No |  |
+| `tags` | `list` | No |  |
 | `template` | `str` | No |  |
 | `title` | `dict` | No |  |
 | `type` | `str` | No |  |

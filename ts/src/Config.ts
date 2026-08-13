@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'QuotesOnDesign',
   }
 
 
@@ -63,7 +63,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "category",
+          "name": "categories",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 1
@@ -189,7 +189,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "tag",
+          "name": "tags",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 19
@@ -264,6 +264,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/posts/",
               "parts": [
@@ -316,6 +317,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/posts/{id}",
               "parts": [

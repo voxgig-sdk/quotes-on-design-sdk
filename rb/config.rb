@@ -34,7 +34,7 @@ module QuotesOnDesignConfig
             },
             {
               "active" => true,
-              "name" => "category",
+              "name" => "categories",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 1,
@@ -160,7 +160,7 @@ module QuotesOnDesignConfig
             },
             {
               "active" => true,
-              "name" => "tag",
+              "name" => "tags",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 19,
@@ -235,6 +235,7 @@ module QuotesOnDesignConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/posts/",
                   "parts" => [
@@ -287,6 +288,7 @@ module QuotesOnDesignConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/posts/{id}",
                   "parts" => [

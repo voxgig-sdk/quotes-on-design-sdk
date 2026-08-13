@@ -33,7 +33,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "category",
+            ["name"] = "categories",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 1,
@@ -159,7 +159,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "tag",
+            ["name"] = "tags",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 19,
@@ -234,6 +234,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/posts/",
                 ["parts"] = {
@@ -286,6 +287,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/posts/{id}",
                 ["parts"] = {

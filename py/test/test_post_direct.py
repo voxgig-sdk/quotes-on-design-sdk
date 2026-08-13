@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from quotesondesign_sdk.utility.voxgig_struct import voxgig_struct as vs
 from quotesondesign_sdk import QuotesOnDesignSDK
-from core import helpers
+from quotesondesign_sdk.core import helpers
 from test import runner
 
 
@@ -105,11 +105,11 @@ def _post_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "QUOTESONDESIGN_TEST_POST_ENTID": {},
-        "QUOTESONDESIGN_TEST_LIVE": "FALSE",
+        "QUOTES_ON_DESIGN_TEST_POST_ENTID": {},
+        "QUOTES_ON_DESIGN_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("QUOTESONDESIGN_TEST_LIVE") == "TRUE"
+    live = env.get("QUOTES_ON_DESIGN_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

@@ -39,7 +39,7 @@ class QuotesOnDesignConfig
             ],
             [
               'active' => true,
-              'name' => 'category',
+              'name' => 'categories',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 1,
@@ -165,7 +165,7 @@ class QuotesOnDesignConfig
             ],
             [
               'active' => true,
-              'name' => 'tag',
+              'name' => 'tags',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 19,
@@ -240,6 +240,7 @@ class QuotesOnDesignConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/posts/',
                   'parts' => [
@@ -292,6 +293,7 @@ class QuotesOnDesignConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/posts/{id}',
                   'parts' => [

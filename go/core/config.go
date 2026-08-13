@@ -33,7 +33,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "category",
+						"name": "categories",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 1,
@@ -159,7 +159,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "tag",
+						"name": "tags",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 19,
@@ -234,6 +234,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/posts/",
 								"parts": []any{
@@ -254,7 +255,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -286,6 +286,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/posts/{id}",
 								"parts": []any{
@@ -305,7 +306,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

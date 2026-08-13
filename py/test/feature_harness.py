@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import QuotesOnDesignControl
-from core.error import QuotesOnDesignError
-from core.result import QuotesOnDesignResult
-from core.spec import QuotesOnDesignSpec
+from quotesondesign_sdk.config import make_config
+from quotesondesign_sdk.features import _make_feature
+from quotesondesign_sdk.core.control import QuotesOnDesignControl
+from quotesondesign_sdk.core.error import QuotesOnDesignError
+from quotesondesign_sdk.core.result import QuotesOnDesignResult
+from quotesondesign_sdk.core.spec import QuotesOnDesignSpec
 
 
 # True when this SDK was generated with the named feature.

@@ -91,7 +91,7 @@ local post = client:Post(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `author` | `number` | No |  |
-| `category` | `table` | No |  |
+| `categories` | `table` | No |  |
 | `comment_status` | `string` | No |  |
 | `content` | `table` | No |  |
 | `date` | `string` | No |  |
@@ -109,7 +109,7 @@ local post = client:Post(nil)
 | `slug` | `string` | No |  |
 | `status` | `string` | No |  |
 | `sticky` | `boolean` | No |  |
-| `tag` | `table` | No |  |
+| `tags` | `table` | No |  |
 | `template` | `string` | No |  |
 | `title` | `table` | No |  |
 | `type` | `string` | No |  |

@@ -7,7 +7,7 @@
 
 export interface Post {
   author?: number
-  category?: any[]
+  categories?: any[]
   comment_status?: string
   content?: Record<string, any>
   date?: string
@@ -25,7 +25,7 @@ export interface Post {
   slug?: string
   status?: string
   sticky?: boolean
-  tag?: any[]
+  tags?: any[]
   template?: string
   title?: Record<string, any>
   type?: string
@@ -37,7 +37,7 @@ export interface PostLoadMatch {
 
 export interface PostListMatch {
   author?: number
-  category?: any[]
+  categories?: any[]
   comment_status?: string
   content?: Record<string, any>
   date?: string
@@ -55,7 +55,7 @@ export interface PostListMatch {
   slug?: string
   status?: string
   sticky?: boolean
-  tag?: any[]
+  tags?: any[]
   template?: string
   title?: Record<string, any>
   type?: string

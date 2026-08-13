@@ -16,7 +16,7 @@ declare(strict_types=1);
 class Post
 {
     public ?int $author = null;
-    public ?array $category = null;
+    public ?array $categories = null;
     public ?string $comment_status = null;
     public ?array $content = null;
     public ?string $date = null;
@@ -34,7 +34,7 @@ class Post
     public ?string $slug = null;
     public ?string $status = null;
     public ?bool $sticky = null;
-    public ?array $tag = null;
+    public ?array $tags = null;
     public ?string $template = null;
     public ?array $title = null;
     public ?string $type = null;
@@ -50,7 +50,7 @@ class PostLoadMatch
 class PostListMatch
 {
     public ?int $author = null;
-    public ?array $category = null;
+    public ?array $categories = null;
     public ?string $comment_status = null;
     public ?array $content = null;
     public ?string $date = null;
@@ -68,7 +68,7 @@ class PostListMatch
     public ?string $slug = null;
     public ?string $status = null;
     public ?bool $sticky = null;
-    public ?array $tag = null;
+    public ?array $tags = null;
     public ?string $template = null;
     public ?array $title = null;
     public ?string $type = null;

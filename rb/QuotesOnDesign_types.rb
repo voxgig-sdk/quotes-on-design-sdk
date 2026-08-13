@@ -13,7 +13,7 @@
 # @!attribute [rw] author
 #   @return [Integer, nil]
 #
-# @!attribute [rw] category
+# @!attribute [rw] categories
 #   @return [Array, nil]
 #
 # @!attribute [rw] comment_status
@@ -67,7 +67,7 @@
 # @!attribute [rw] sticky
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] tag
+# @!attribute [rw] tags
 #   @return [Array, nil]
 #
 # @!attribute [rw] template
@@ -80,7 +80,7 @@
 #   @return [String, nil]
 Post = Struct.new(
   :author,
-  :category,
+  :categories,
   :comment_status,
   :content,
   :date,
@@ -98,7 +98,7 @@ Post = Struct.new(
   :slug,
   :status,
   :sticky,
-  :tag,
+  :tags,
   :template,
   :title,
   :type,
@@ -119,7 +119,7 @@ PostLoadMatch = Struct.new(
 # @!attribute [rw] author
 #   @return [Integer, nil]
 #
-# @!attribute [rw] category
+# @!attribute [rw] categories
 #   @return [Array, nil]
 #
 # @!attribute [rw] comment_status
@@ -173,7 +173,7 @@ PostLoadMatch = Struct.new(
 # @!attribute [rw] sticky
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] tag
+# @!attribute [rw] tags
 #   @return [Array, nil]
 #
 # @!attribute [rw] template
@@ -186,7 +186,7 @@ PostLoadMatch = Struct.new(
 #   @return [String, nil]
 PostListMatch = Struct.new(
   :author,
-  :category,
+  :categories,
   :comment_status,
   :content,
   :date,
@@ -204,7 +204,7 @@ PostListMatch = Struct.new(
   :slug,
   :status,
   :sticky,
-  :tag,
+  :tags,
   :template,
   :title,
   :type,

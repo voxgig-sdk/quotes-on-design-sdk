@@ -23,8 +23,8 @@ module QuotesOnDesignTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("QUOTESONDESIGN_TEST_LIVE")
-    override = getenv("QUOTESONDESIGN_TEST_OVERRIDE")
+    live = getenv("QUOTES_ON_DESIGN_TEST_LIVE")
+    override = getenv("QUOTES_ON_DESIGN_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module QuotesOnDesignTestRunner
       end
     end
 
-    explain = getenv("QUOTESONDESIGN_TEST_EXPLAIN")
-    m["QUOTESONDESIGN_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("QUOTES_ON_DESIGN_TEST_EXPLAIN")
+    m["QUOTES_ON_DESIGN_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

@@ -270,7 +270,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | Field | Description |
 | --- | --- |
 | `"author"` |  |
-| `"category"` |  |
+| `"categories"` |  |
 | `"comment_status"` |  |
 | `"content"` |  |
 | `"date"` |  |
@@ -288,7 +288,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"slug"` |  |
 | `"status"` |  |
 | `"sticky"` |  |
-| `"tag"` |  |
+| `"tags"` |  |
 | `"template"` |  |
 | `"title"` |  |
 | `"type"` |  |
@@ -318,7 +318,7 @@ Create an instance: `post := client.Post(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `author` | `int` |  |
-| `category` | `[]any` |  |
+| `categories` | `[]any` |  |
 | `comment_status` | `string` |  |
 | `content` | `map[string]any` |  |
 | `date` | `string` |  |
@@ -336,7 +336,7 @@ Create an instance: `post := client.Post(nil)`
 | `slug` | `string` |  |
 | `status` | `string` |  |
 | `sticky` | `bool` |  |
-| `tag` | `[]any` |  |
+| `tags` | `[]any` |  |
 | `template` | `string` |  |
 | `title` | `map[string]any` |  |
 | `type` | `string` |  |

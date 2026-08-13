@@ -93,7 +93,7 @@ $post = $client->Post();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `author` | `int` | No |  |
-| `category` | `array` | No |  |
+| `categories` | `array` | No |  |
 | `comment_status` | `string` | No |  |
 | `content` | `array` | No |  |
 | `date` | `string` | No |  |
@@ -111,7 +111,7 @@ $post = $client->Post();
 | `slug` | `string` | No |  |
 | `status` | `string` | No |  |
 | `sticky` | `bool` | No |  |
-| `tag` | `array` | No |  |
+| `tags` | `array` | No |  |
 | `template` | `string` | No |  |
 | `title` | `array` | No |  |
 | `type` | `string` | No |  |

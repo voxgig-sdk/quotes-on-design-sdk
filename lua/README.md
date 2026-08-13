@@ -242,7 +242,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | Field | Description |
 | --- | --- |
 | `author` |  |
-| `category` |  |
+| `categories` |  |
 | `comment_status` |  |
 | `content` |  |
 | `date` |  |
@@ -260,7 +260,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `slug` |  |
 | `status` |  |
 | `sticky` |  |
-| `tag` |  |
+| `tags` |  |
 | `template` |  |
 | `title` |  |
 | `type` |  |
@@ -290,7 +290,7 @@ Create an instance: `local post = client:Post(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `author` | `number` |  |
-| `category` | `table` |  |
+| `categories` | `table` |  |
 | `comment_status` | `string` |  |
 | `content` | `table` |  |
 | `date` | `string` |  |
@@ -308,7 +308,7 @@ Create an instance: `local post = client:Post(nil)`
 | `slug` | `string` |  |
 | `status` | `string` |  |
 | `sticky` | `boolean` |  |
-| `tag` | `table` |  |
+| `tags` | `table` |  |
 | `template` | `string` |  |
 | `title` | `table` |  |
 | `type` | `string` |  |

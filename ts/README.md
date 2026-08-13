@@ -35,7 +35,9 @@ const client = new QuotesOnDesignSDK()
 
 ### 2. List post records
 
-`list()` resolves to an array of Post objects — iterate it directly:
+`list()` resolves to an array of Post ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const posts = await client.Post().list()
@@ -133,7 +135,8 @@ Create a mock client for unit testing — no server required:
 const client = QuotesOnDesignSDK.test()
 
 const post = await client.Post().list()
-// post is a bare entity populated with mock response data
+// post is the entity, populated with mock response data
+// — call post.data() for the record itself
 console.log(post)
 ```
 
@@ -300,7 +303,7 @@ The `prepare()` method returns:
 | Field | Description |
 | --- | --- |
 | `author` |  |
-| `category` |  |
+| `categories` |  |
 | `comment_status` |  |
 | `content` |  |
 | `date` |  |
@@ -318,7 +321,7 @@ The `prepare()` method returns:
 | `slug` |  |
 | `status` |  |
 | `sticky` |  |
-| `tag` |  |
+| `tags` |  |
 | `template` |  |
 | `title` |  |
 | `type` |  |
@@ -348,7 +351,7 @@ Create an instance: `const post = client.Post()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `author` | `number` |  |
-| `category` | `any[]` |  |
+| `categories` | `any[]` |  |
 | `comment_status` | `string` |  |
 | `content` | `Record<string, any>` |  |
 | `date` | `string` |  |
@@ -366,7 +369,7 @@ Create an instance: `const post = client.Post()`
 | `slug` | `string` |  |
 | `status` | `string` |  |
 | `sticky` | `boolean` |  |
-| `tag` | `any[]` |  |
+| `tags` | `any[]` |  |
 | `template` | `string` |  |
 | `title` | `Record<string, any>` |  |
 | `type` | `string` |  |

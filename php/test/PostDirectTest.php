@@ -121,11 +121,11 @@ function post_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "QUOTESONDESIGN_TEST_POST_ENTID" => [],
-        "QUOTESONDESIGN_TEST_LIVE" => "FALSE",
+        "QUOTES_ON_DESIGN_TEST_POST_ENTID" => [],
+        "QUOTES_ON_DESIGN_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["QUOTESONDESIGN_TEST_LIVE"] === "TRUE";
+    $live = $env["QUOTES_ON_DESIGN_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

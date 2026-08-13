@@ -94,7 +94,7 @@ post = client.Post
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `author` | `Integer` | No |  |
-| `category` | `Array` | No |  |
+| `categories` | `Array` | No |  |
 | `comment_status` | `String` | No |  |
 | `content` | `Hash` | No |  |
 | `date` | `String` | No |  |
@@ -112,7 +112,7 @@ post = client.Post
 | `slug` | `String` | No |  |
 | `status` | `String` | No |  |
 | `sticky` | `Boolean` | No |  |
-| `tag` | `Array` | No |  |
+| `tags` | `Array` | No |  |
 | `template` | `String` | No |  |
 | `title` | `Hash` | No |  |
 | `type` | `String` | No |  |

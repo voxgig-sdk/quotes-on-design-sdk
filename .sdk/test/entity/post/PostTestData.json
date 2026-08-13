@@ -3,7 +3,7 @@
     "post": {
       "POST00": {
         "author": "se6",
-        "category": [],
+        "categories": [],
         "comment_status": "se8",
         "content": {},
         "date": "sea",
@@ -21,14 +21,14 @@
         "slug": "sf6",
         "status": "sf7",
         "sticky": true,
-        "tag": [],
+        "tags": [],
         "template": "sfa",
         "title": {},
         "type": "sfc"
       },
       "POST01": {
         "author": "s1cc",
-        "category": [],
+        "categories": [],
         "comment_status": "s1ce",
         "content": {},
         "date": "s1d0",
@@ -46,14 +46,14 @@
         "slug": "s1dc",
         "status": "s1dd",
         "sticky": true,
-        "tag": [],
+        "tags": [],
         "template": "s1e0",
         "title": {},
         "type": "s1e2"
       },
       "POST02": {
         "author": "s2b2",
-        "category": [],
+        "categories": [],
         "comment_status": "s2b4",
         "content": {},
         "date": "s2b6",
@@ -71,7 +71,7 @@
         "slug": "s2c2",
         "status": "s2c3",
         "sticky": true,
-        "tag": [],
+        "tags": [],
         "template": "s2c6",
         "title": {},
         "type": "s2c8"
@@ -82,7 +82,7 @@
     "post": {
       "post_ref01": {
         "author": "s398",
-        "category": [],
+        "categories": [],
         "comment_status": "s39a",
         "content": {},
         "date": "s39c",
@@ -99,7 +99,7 @@
         "slug": "s3a8",
         "status": "s3a9",
         "sticky": true,
-        "tag": [],
+        "tags": [],
         "template": "s3ac",
         "title": {},
         "type": "s3ae"

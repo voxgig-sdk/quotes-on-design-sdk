@@ -48,7 +48,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare Post record (raises on error).
+  # load returns the ENTITY — call data_get for the Post record (raises on error).
   post = client.Post.load({ "id" => 1 })
   puts post
 rescue => err
@@ -134,7 +134,8 @@ client = QuotesOnDesignSDK.test({
   "entity" => { "post" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 post = client.Post.list()
 puts post
 ```
@@ -253,7 +254,7 @@ returns a result `Hash` with these keys:
 | Field | Description |
 | --- | --- |
 | `author` |  |
-| `category` |  |
+| `categories` |  |
 | `comment_status` |  |
 | `content` |  |
 | `date` |  |
@@ -271,7 +272,7 @@ returns a result `Hash` with these keys:
 | `slug` |  |
 | `status` |  |
 | `sticky` |  |
-| `tag` |  |
+| `tags` |  |
 | `template` |  |
 | `title` |  |
 | `type` |  |
@@ -301,7 +302,7 @@ Create an instance: `post = client.Post`
 | Field | Type | Description |
 | --- | --- | --- |
 | `author` | `Integer` |  |
-| `category` | `Array` |  |
+| `categories` | `Array` |  |
 | `comment_status` | `String` |  |
 | `content` | `Hash` |  |
 | `date` | `String` |  |
@@ -319,7 +320,7 @@ Create an instance: `post = client.Post`
 | `slug` | `String` |  |
 | `status` | `String` |  |
 | `sticky` | `Boolean` |  |
-| `tag` | `Array` |  |
+| `tags` | `Array` |  |
 | `template` | `String` |  |
 | `title` | `Hash` |  |
 | `type` | `String` |  |
@@ -327,7 +328,7 @@ Create an instance: `post = client.Post`
 #### Example: Load
 
 ```ruby
-# load returns the bare Post record (raises on error).
+# load returns the ENTITY — call data_get for the Post record (raises on error).
 post = client.Post.load({ "id" => 1 })
 ```
 

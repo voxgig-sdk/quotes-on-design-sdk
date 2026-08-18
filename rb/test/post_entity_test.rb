@@ -33,7 +33,7 @@ class PostEntityTest < Minitest::Test
     assert_equal 3, seen.length
 
     # Inbound: streaming active -> yields each item from the feature.
-    cfg = QuotesOnDesignConfig.make_config
+    cfg = QuotesOnDesignConfig.shared_config
     if cfg["feature"].is_a?(Hash) && cfg["feature"].key?("streaming")
       sdk = QuotesOnDesignSDK.test(seed, { "feature" => { "streaming" => { "active" => true } } })
       got = []

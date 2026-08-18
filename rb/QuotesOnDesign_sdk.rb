@@ -28,7 +28,7 @@ class QuotesOnDesignSDK
     utility = QuotesOnDesignUtility.new
     @_utility = utility
 
-    config = QuotesOnDesignConfig.make_config
+    config = QuotesOnDesignConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

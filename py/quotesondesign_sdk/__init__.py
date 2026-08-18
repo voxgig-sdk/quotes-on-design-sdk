@@ -23,8 +23,8 @@ class QuotesOnDesignSDK:
         utility = QuotesOnDesignUtility()
         self._utility = utility
 
-        from quotesondesign_sdk.config import make_config
-        config = make_config()
+        from quotesondesign_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

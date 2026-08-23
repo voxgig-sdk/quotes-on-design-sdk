@@ -36,18 +36,21 @@
               "active": true,
               "name": "author",
               "req": false,
+              "short": "The ID for the author of the post",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "categories",
               "req": false,
+              "short": "The terms assigned to the post in the category taxonomy",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "comment_status",
               "req": false,
+              "short": "Whether or not comments are open on the post",
               "type": "`$STRING`"
             },
             {
@@ -60,12 +63,14 @@
               "active": true,
               "name": "date",
               "req": false,
+              "short": "The date the post was published, in the site's timezone",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "date_gmt",
               "req": false,
+              "short": "The date the post was published, as GMT",
               "type": "`$STRING`"
             },
             {
@@ -78,12 +83,14 @@
               "active": true,
               "name": "featured_media",
               "req": false,
+              "short": "The ID of the featured media for the post",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "format",
               "req": false,
+              "short": "The format for the post",
               "type": "`$STRING`"
             },
             {
@@ -96,66 +103,77 @@
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the post",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "link",
               "req": false,
+              "short": "URL to the post",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "meta",
               "req": false,
+              "short": "Meta fields",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "modified",
               "req": false,
+              "short": "The date the post was last modified, in the site's timezone",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "modified_gmt",
               "req": false,
+              "short": "The date the post was last modified, as GMT",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "ping_status",
               "req": false,
+              "short": "Whether or not the post can be pinged",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "slug",
               "req": false,
+              "short": "An alphanumeric identifier for the post unique to its type",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "status",
               "req": false,
+              "short": "A named status for the post",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "sticky",
               "req": false,
+              "short": "Whether or not the post should be treated as sticky",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "tags",
               "req": false,
+              "short": "The terms assigned to the post in the post_tag taxonomy",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "template",
               "req": false,
+              "short": "The theme file to use to display the post",
               "type": "`$STRING`"
             },
             {
@@ -168,6 +186,7 @@
               "active": true,
               "name": "type",
               "req": false,
+              "short": "Type of post",
               "type": "`$STRING`"
             }
           ],

@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "QuotesOnDesign",
+			"slug": "quotes-on-design",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,14 +36,17 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "author",
+						"short": "The ID for the author of the post",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "categories",
+						"short": "The terms assigned to the post in the category taxonomy",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "comment_status",
+						"short": "Whether or not comments are open on the post",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -49,10 +55,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "date",
+						"short": "The date the post was published, in the site's timezone",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "date_gmt",
+						"short": "The date the post was published, as GMT",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -61,10 +69,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "featured_media",
+						"short": "The ID of the featured media for the post",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "format",
+						"short": "The format for the post",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -73,46 +83,57 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the post",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "link",
+						"short": "URL to the post",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "meta",
+						"short": "Meta fields",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "modified",
+						"short": "The date the post was last modified, in the site's timezone",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "modified_gmt",
+						"short": "The date the post was last modified, as GMT",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "ping_status",
+						"short": "Whether or not the post can be pinged",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "slug",
+						"short": "An alphanumeric identifier for the post unique to its type",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",
+						"short": "A named status for the post",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "sticky",
+						"short": "Whether or not the post should be treated as sticky",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "tags",
+						"short": "The terms assigned to the post in the post_tag taxonomy",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "template",
+						"short": "The theme file to use to display the post",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -121,6 +142,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "type",
+						"short": "Type of post",
 						"type": "`$STRING`",
 					},
 				},

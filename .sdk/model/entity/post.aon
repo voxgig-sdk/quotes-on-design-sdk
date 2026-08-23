@@ -8,16 +8,19 @@ main: kit: entity: post: {
     {
       name: "author"
       req: false
+      short: "The ID for the author of the post"
       type: "`$INTEGER`"
     }
     {
       name: "categories"
       req: false
+      short: "The terms assigned to the post in the category taxonomy"
       type: "`$ARRAY`"
     }
     {
       name: "comment_status"
       req: false
+      short: "Whether or not comments are open on the post"
       type: "`$STRING`"
     }
     {
@@ -28,11 +31,13 @@ main: kit: entity: post: {
     {
       name: "date"
       req: false
+      short: "The date the post was published, in the site's timezone"
       type: "`$STRING`"
     }
     {
       name: "date_gmt"
       req: false
+      short: "The date the post was published, as GMT"
       type: "`$STRING`"
     }
     {
@@ -43,11 +48,13 @@ main: kit: entity: post: {
     {
       name: "featured_media"
       req: false
+      short: "The ID of the featured media for the post"
       type: "`$INTEGER`"
     }
     {
       name: "format"
       req: false
+      short: "The format for the post"
       type: "`$STRING`"
     }
     {
@@ -58,56 +65,67 @@ main: kit: entity: post: {
     {
       name: "id"
       req: false
+      short: "Unique identifier for the post"
       type: "`$INTEGER`"
     }
     {
       name: "link"
       req: false
+      short: "URL to the post"
       type: "`$STRING`"
     }
     {
       name: "meta"
       req: false
+      short: "Meta fields"
       type: "`$OBJECT`"
     }
     {
       name: "modified"
       req: false
+      short: "The date the post was last modified, in the site's timezone"
       type: "`$STRING`"
     }
     {
       name: "modified_gmt"
       req: false
+      short: "The date the post was last modified, as GMT"
       type: "`$STRING`"
     }
     {
       name: "ping_status"
       req: false
+      short: "Whether or not the post can be pinged"
       type: "`$STRING`"
     }
     {
       name: "slug"
       req: false
+      short: "An alphanumeric identifier for the post unique to its type"
       type: "`$STRING`"
     }
     {
       name: "status"
       req: false
+      short: "A named status for the post"
       type: "`$STRING`"
     }
     {
       name: "sticky"
       req: false
+      short: "Whether or not the post should be treated as sticky"
       type: "`$BOOLEAN`"
     }
     {
       name: "tags"
       req: false
+      short: "The terms assigned to the post in the post_tag taxonomy"
       type: "`$ARRAY`"
     }
     {
       name: "template"
       req: false
+      short: "The theme file to use to display the post"
       type: "`$STRING`"
     }
     {
@@ -118,6 +136,7 @@ main: kit: entity: post: {
     {
       name: "type"
       req: false
+      short: "Type of post"
       type: "`$STRING`"
     }
   ]

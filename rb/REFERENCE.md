@@ -93,29 +93,29 @@ post = client.Post
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `Integer` | No |  |
-| `categories` | `Array` | No |  |
-| `comment_status` | `String` | No |  |
+| `author` | `Integer` | No | The ID for the author of the post |
+| `categories` | `Array` | No | The terms assigned to the post in the category taxonomy |
+| `comment_status` | `String` | No | Whether or not comments are open on the post |
 | `content` | `Hash` | No |  |
-| `date` | `String` | No |  |
-| `date_gmt` | `String` | No |  |
+| `date` | `String` | No | The date the post was published, in the site's timezone |
+| `date_gmt` | `String` | No | The date the post was published, as GMT |
 | `excerpt` | `Hash` | No |  |
-| `featured_media` | `Integer` | No |  |
-| `format` | `String` | No |  |
+| `featured_media` | `Integer` | No | The ID of the featured media for the post |
+| `format` | `String` | No | The format for the post |
 | `guid` | `Hash` | No |  |
-| `id` | `Integer` | No |  |
-| `link` | `String` | No |  |
-| `meta` | `Hash` | No |  |
-| `modified` | `String` | No |  |
-| `modified_gmt` | `String` | No |  |
-| `ping_status` | `String` | No |  |
-| `slug` | `String` | No |  |
-| `status` | `String` | No |  |
-| `sticky` | `Boolean` | No |  |
-| `tags` | `Array` | No |  |
-| `template` | `String` | No |  |
+| `id` | `Integer` | No | Unique identifier for the post |
+| `link` | `String` | No | URL to the post |
+| `meta` | `Hash` | No | Meta fields |
+| `modified` | `String` | No | The date the post was last modified, in the site's timezone |
+| `modified_gmt` | `String` | No | The date the post was last modified, as GMT |
+| `ping_status` | `String` | No | Whether or not the post can be pinged |
+| `slug` | `String` | No | An alphanumeric identifier for the post unique to its type |
+| `status` | `String` | No | A named status for the post |
+| `sticky` | `Boolean` | No | Whether or not the post should be treated as sticky |
+| `tags` | `Array` | No | The terms assigned to the post in the post_tag taxonomy |
+| `template` | `String` | No | The theme file to use to display the post |
 | `title` | `Hash` | No |  |
-| `type` | `String` | No |  |
+| `type` | `String` | No | Type of post |
 
 ### Operations
 

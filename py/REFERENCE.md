@@ -87,29 +87,29 @@ post = client.Post()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `int` | No |  |
-| `categories` | `list` | No |  |
-| `comment_status` | `str` | No |  |
+| `author` | `int` | No | The ID for the author of the post |
+| `categories` | `list` | No | The terms assigned to the post in the category taxonomy |
+| `comment_status` | `str` | No | Whether or not comments are open on the post |
 | `content` | `dict` | No |  |
-| `date` | `str` | No |  |
-| `date_gmt` | `str` | No |  |
+| `date` | `str` | No | The date the post was published, in the site's timezone |
+| `date_gmt` | `str` | No | The date the post was published, as GMT |
 | `excerpt` | `dict` | No |  |
-| `featured_media` | `int` | No |  |
-| `format` | `str` | No |  |
+| `featured_media` | `int` | No | The ID of the featured media for the post |
+| `format` | `str` | No | The format for the post |
 | `guid` | `dict` | No |  |
-| `id` | `int` | No |  |
-| `link` | `str` | No |  |
-| `meta` | `dict` | No |  |
-| `modified` | `str` | No |  |
-| `modified_gmt` | `str` | No |  |
-| `ping_status` | `str` | No |  |
-| `slug` | `str` | No |  |
-| `status` | `str` | No |  |
-| `sticky` | `bool` | No |  |
-| `tags` | `list` | No |  |
-| `template` | `str` | No |  |
+| `id` | `int` | No | Unique identifier for the post |
+| `link` | `str` | No | URL to the post |
+| `meta` | `dict` | No | Meta fields |
+| `modified` | `str` | No | The date the post was last modified, in the site's timezone |
+| `modified_gmt` | `str` | No | The date the post was last modified, as GMT |
+| `ping_status` | `str` | No | Whether or not the post can be pinged |
+| `slug` | `str` | No | An alphanumeric identifier for the post unique to its type |
+| `status` | `str` | No | A named status for the post |
+| `sticky` | `bool` | No | Whether or not the post should be treated as sticky |
+| `tags` | `list` | No | The terms assigned to the post in the post_tag taxonomy |
+| `template` | `str` | No | The theme file to use to display the post |
 | `title` | `dict` | No |  |
-| `type` | `str` | No |  |
+| `type` | `str` | No | Type of post |
 
 ### Operations
 

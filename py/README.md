@@ -256,29 +256,29 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `categories` |  |
-| `comment_status` |  |
+| `author` | The ID for the author of the post |
+| `categories` | The terms assigned to the post in the category taxonomy |
+| `comment_status` | Whether or not comments are open on the post |
 | `content` |  |
-| `date` |  |
-| `date_gmt` |  |
+| `date` | The date the post was published, in the site's timezone |
+| `date_gmt` | The date the post was published, as GMT |
 | `excerpt` |  |
-| `featured_media` |  |
-| `format` |  |
+| `featured_media` | The ID of the featured media for the post |
+| `format` | The format for the post |
 | `guid` |  |
-| `id` |  |
-| `link` |  |
-| `meta` |  |
-| `modified` |  |
-| `modified_gmt` |  |
-| `ping_status` |  |
-| `slug` |  |
-| `status` |  |
-| `sticky` |  |
-| `tags` |  |
-| `template` |  |
+| `id` | Unique identifier for the post |
+| `link` | URL to the post |
+| `meta` | Meta fields |
+| `modified` | The date the post was last modified, in the site's timezone |
+| `modified_gmt` | The date the post was last modified, as GMT |
+| `ping_status` | Whether or not the post can be pinged |
+| `slug` | An alphanumeric identifier for the post unique to its type |
+| `status` | A named status for the post |
+| `sticky` | Whether or not the post should be treated as sticky |
+| `tags` | The terms assigned to the post in the post_tag taxonomy |
+| `template` | The theme file to use to display the post |
 | `title` |  |
-| `type` |  |
+| `type` | Type of post |
 
 Operations: List, Load.
 
@@ -304,29 +304,29 @@ Create an instance: `post = client.Post()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `int` |  |
-| `categories` | `list` |  |
-| `comment_status` | `str` |  |
+| `author` | `int` | The ID for the author of the post |
+| `categories` | `list` | The terms assigned to the post in the category taxonomy |
+| `comment_status` | `str` | Whether or not comments are open on the post |
 | `content` | `dict` |  |
-| `date` | `str` |  |
-| `date_gmt` | `str` |  |
+| `date` | `str` | The date the post was published, in the site's timezone |
+| `date_gmt` | `str` | The date the post was published, as GMT |
 | `excerpt` | `dict` |  |
-| `featured_media` | `int` |  |
-| `format` | `str` |  |
+| `featured_media` | `int` | The ID of the featured media for the post |
+| `format` | `str` | The format for the post |
 | `guid` | `dict` |  |
-| `id` | `int` |  |
-| `link` | `str` |  |
-| `meta` | `dict` |  |
-| `modified` | `str` |  |
-| `modified_gmt` | `str` |  |
-| `ping_status` | `str` |  |
-| `slug` | `str` |  |
-| `status` | `str` |  |
-| `sticky` | `bool` |  |
-| `tags` | `list` |  |
-| `template` | `str` |  |
+| `id` | `int` | Unique identifier for the post |
+| `link` | `str` | URL to the post |
+| `meta` | `dict` | Meta fields |
+| `modified` | `str` | The date the post was last modified, in the site's timezone |
+| `modified_gmt` | `str` | The date the post was last modified, as GMT |
+| `ping_status` | `str` | Whether or not the post can be pinged |
+| `slug` | `str` | An alphanumeric identifier for the post unique to its type |
+| `status` | `str` | A named status for the post |
+| `sticky` | `bool` | Whether or not the post should be treated as sticky |
+| `tags` | `list` | The terms assigned to the post in the post_tag taxonomy |
+| `template` | `str` | The theme file to use to display the post |
 | `title` | `dict` |  |
-| `type` | `str` |  |
+| `type` | `str` | Type of post |
 
 #### Example: Load
 

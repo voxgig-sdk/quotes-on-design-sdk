@@ -253,29 +253,29 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `categories` |  |
-| `comment_status` |  |
+| `author` | The ID for the author of the post |
+| `categories` | The terms assigned to the post in the category taxonomy |
+| `comment_status` | Whether or not comments are open on the post |
 | `content` |  |
-| `date` |  |
-| `date_gmt` |  |
+| `date` | The date the post was published, in the site's timezone |
+| `date_gmt` | The date the post was published, as GMT |
 | `excerpt` |  |
-| `featured_media` |  |
-| `format` |  |
+| `featured_media` | The ID of the featured media for the post |
+| `format` | The format for the post |
 | `guid` |  |
-| `id` |  |
-| `link` |  |
-| `meta` |  |
-| `modified` |  |
-| `modified_gmt` |  |
-| `ping_status` |  |
-| `slug` |  |
-| `status` |  |
-| `sticky` |  |
-| `tags` |  |
-| `template` |  |
+| `id` | Unique identifier for the post |
+| `link` | URL to the post |
+| `meta` | Meta fields |
+| `modified` | The date the post was last modified, in the site's timezone |
+| `modified_gmt` | The date the post was last modified, as GMT |
+| `ping_status` | Whether or not the post can be pinged |
+| `slug` | An alphanumeric identifier for the post unique to its type |
+| `status` | A named status for the post |
+| `sticky` | Whether or not the post should be treated as sticky |
+| `tags` | The terms assigned to the post in the post_tag taxonomy |
+| `template` | The theme file to use to display the post |
 | `title` |  |
-| `type` |  |
+| `type` | Type of post |
 
 Operations: List, Load.
 
@@ -301,29 +301,29 @@ Create an instance: `post = client.Post`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `Integer` |  |
-| `categories` | `Array` |  |
-| `comment_status` | `String` |  |
+| `author` | `Integer` | The ID for the author of the post |
+| `categories` | `Array` | The terms assigned to the post in the category taxonomy |
+| `comment_status` | `String` | Whether or not comments are open on the post |
 | `content` | `Hash` |  |
-| `date` | `String` |  |
-| `date_gmt` | `String` |  |
+| `date` | `String` | The date the post was published, in the site's timezone |
+| `date_gmt` | `String` | The date the post was published, as GMT |
 | `excerpt` | `Hash` |  |
-| `featured_media` | `Integer` |  |
-| `format` | `String` |  |
+| `featured_media` | `Integer` | The ID of the featured media for the post |
+| `format` | `String` | The format for the post |
 | `guid` | `Hash` |  |
-| `id` | `Integer` |  |
-| `link` | `String` |  |
-| `meta` | `Hash` |  |
-| `modified` | `String` |  |
-| `modified_gmt` | `String` |  |
-| `ping_status` | `String` |  |
-| `slug` | `String` |  |
-| `status` | `String` |  |
-| `sticky` | `Boolean` |  |
-| `tags` | `Array` |  |
-| `template` | `String` |  |
+| `id` | `Integer` | Unique identifier for the post |
+| `link` | `String` | URL to the post |
+| `meta` | `Hash` | Meta fields |
+| `modified` | `String` | The date the post was last modified, in the site's timezone |
+| `modified_gmt` | `String` | The date the post was last modified, as GMT |
+| `ping_status` | `String` | Whether or not the post can be pinged |
+| `slug` | `String` | An alphanumeric identifier for the post unique to its type |
+| `status` | `String` | A named status for the post |
+| `sticky` | `Boolean` | Whether or not the post should be treated as sticky |
+| `tags` | `Array` | The terms assigned to the post in the post_tag taxonomy |
+| `template` | `String` | The theme file to use to display the post |
 | `title` | `Hash` |  |
-| `type` | `String` |  |
+| `type` | `String` | Type of post |
 
 #### Example: Load
 

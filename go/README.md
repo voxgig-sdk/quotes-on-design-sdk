@@ -6,7 +6,7 @@ The Golang SDK for the QuotesOnDesign API — an entity-oriented client using st
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Post(nil)` — each with the same small set of operations (`List`, `Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -269,29 +269,29 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"author"` |  |
-| `"categories"` |  |
-| `"comment_status"` |  |
+| `"author"` | The ID for the author of the post |
+| `"categories"` | The terms assigned to the post in the category taxonomy |
+| `"comment_status"` | Whether or not comments are open on the post |
 | `"content"` |  |
-| `"date"` |  |
-| `"date_gmt"` |  |
+| `"date"` | The date the post was published, in the site's timezone |
+| `"date_gmt"` | The date the post was published, as GMT |
 | `"excerpt"` |  |
-| `"featured_media"` |  |
-| `"format"` |  |
+| `"featured_media"` | The ID of the featured media for the post |
+| `"format"` | The format for the post |
 | `"guid"` |  |
-| `"id"` |  |
-| `"link"` |  |
-| `"meta"` |  |
-| `"modified"` |  |
-| `"modified_gmt"` |  |
-| `"ping_status"` |  |
-| `"slug"` |  |
-| `"status"` |  |
-| `"sticky"` |  |
-| `"tags"` |  |
-| `"template"` |  |
+| `"id"` | Unique identifier for the post |
+| `"link"` | URL to the post |
+| `"meta"` | Meta fields |
+| `"modified"` | The date the post was last modified, in the site's timezone |
+| `"modified_gmt"` | The date the post was last modified, as GMT |
+| `"ping_status"` | Whether or not the post can be pinged |
+| `"slug"` | An alphanumeric identifier for the post unique to its type |
+| `"status"` | A named status for the post |
+| `"sticky"` | Whether or not the post should be treated as sticky |
+| `"tags"` | The terms assigned to the post in the post_tag taxonomy |
+| `"template"` | The theme file to use to display the post |
 | `"title"` |  |
-| `"type"` |  |
+| `"type"` | Type of post |
 
 Operations: List, Load.
 
@@ -317,29 +317,29 @@ Create an instance: `post := client.Post(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `int` |  |
-| `categories` | `[]any` |  |
-| `comment_status` | `string` |  |
+| `author` | `int` | The ID for the author of the post |
+| `categories` | `[]any` | The terms assigned to the post in the category taxonomy |
+| `comment_status` | `string` | Whether or not comments are open on the post |
 | `content` | `map[string]any` |  |
-| `date` | `string` |  |
-| `date_gmt` | `string` |  |
+| `date` | `string` | The date the post was published, in the site's timezone |
+| `date_gmt` | `string` | The date the post was published, as GMT |
 | `excerpt` | `map[string]any` |  |
-| `featured_media` | `int` |  |
-| `format` | `string` |  |
+| `featured_media` | `int` | The ID of the featured media for the post |
+| `format` | `string` | The format for the post |
 | `guid` | `map[string]any` |  |
-| `id` | `int` |  |
-| `link` | `string` |  |
-| `meta` | `map[string]any` |  |
-| `modified` | `string` |  |
-| `modified_gmt` | `string` |  |
-| `ping_status` | `string` |  |
-| `slug` | `string` |  |
-| `status` | `string` |  |
-| `sticky` | `bool` |  |
-| `tags` | `[]any` |  |
-| `template` | `string` |  |
+| `id` | `int` | Unique identifier for the post |
+| `link` | `string` | URL to the post |
+| `meta` | `map[string]any` | Meta fields |
+| `modified` | `string` | The date the post was last modified, in the site's timezone |
+| `modified_gmt` | `string` | The date the post was last modified, as GMT |
+| `ping_status` | `string` | Whether or not the post can be pinged |
+| `slug` | `string` | An alphanumeric identifier for the post unique to its type |
+| `status` | `string` | A named status for the post |
+| `sticky` | `bool` | Whether or not the post should be treated as sticky |
+| `tags` | `[]any` | The terms assigned to the post in the post_tag taxonomy |
+| `template` | `string` | The theme file to use to display the post |
 | `title` | `map[string]any` |  |
-| `type` | `string` |  |
+| `type` | `string` | Type of post |
 
 #### Example: Load
 

@@ -116,29 +116,29 @@ const post = client.Post()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `number` | No |  |
-| `categories` | `any[]` | No |  |
-| `comment_status` | `string` | No |  |
+| `author` | `number` | No | The ID for the author of the post |
+| `categories` | `any[]` | No | The terms assigned to the post in the category taxonomy |
+| `comment_status` | `string` | No | Whether or not comments are open on the post |
 | `content` | `Record<string, any>` | No |  |
-| `date` | `string` | No |  |
-| `date_gmt` | `string` | No |  |
+| `date` | `string` | No | The date the post was published, in the site's timezone |
+| `date_gmt` | `string` | No | The date the post was published, as GMT |
 | `excerpt` | `Record<string, any>` | No |  |
-| `featured_media` | `number` | No |  |
-| `format` | `string` | No |  |
+| `featured_media` | `number` | No | The ID of the featured media for the post |
+| `format` | `string` | No | The format for the post |
 | `guid` | `Record<string, any>` | No |  |
-| `id` | `number` | No |  |
-| `link` | `string` | No |  |
-| `meta` | `Record<string, any>` | No |  |
-| `modified` | `string` | No |  |
-| `modified_gmt` | `string` | No |  |
-| `ping_status` | `string` | No |  |
-| `slug` | `string` | No |  |
-| `status` | `string` | No |  |
-| `sticky` | `boolean` | No |  |
-| `tags` | `any[]` | No |  |
-| `template` | `string` | No |  |
+| `id` | `number` | No | Unique identifier for the post |
+| `link` | `string` | No | URL to the post |
+| `meta` | `Record<string, any>` | No | Meta fields |
+| `modified` | `string` | No | The date the post was last modified, in the site's timezone |
+| `modified_gmt` | `string` | No | The date the post was last modified, as GMT |
+| `ping_status` | `string` | No | Whether or not the post can be pinged |
+| `slug` | `string` | No | An alphanumeric identifier for the post unique to its type |
+| `status` | `string` | No | A named status for the post |
+| `sticky` | `boolean` | No | Whether or not the post should be treated as sticky |
+| `tags` | `any[]` | No | The terms assigned to the post in the post_tag taxonomy |
+| `template` | `string` | No | The theme file to use to display the post |
 | `title` | `Record<string, any>` | No |  |
-| `type` | `string` | No |  |
+| `type` | `string` | No | Type of post |
 
 ### Operations
 

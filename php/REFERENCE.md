@@ -92,29 +92,29 @@ $post = $client->Post();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `int` | No |  |
-| `categories` | `array` | No |  |
-| `comment_status` | `string` | No |  |
+| `author` | `int` | No | The ID for the author of the post |
+| `categories` | `array` | No | The terms assigned to the post in the category taxonomy |
+| `comment_status` | `string` | No | Whether or not comments are open on the post |
 | `content` | `array` | No |  |
-| `date` | `string` | No |  |
-| `date_gmt` | `string` | No |  |
+| `date` | `string` | No | The date the post was published, in the site's timezone |
+| `date_gmt` | `string` | No | The date the post was published, as GMT |
 | `excerpt` | `array` | No |  |
-| `featured_media` | `int` | No |  |
-| `format` | `string` | No |  |
+| `featured_media` | `int` | No | The ID of the featured media for the post |
+| `format` | `string` | No | The format for the post |
 | `guid` | `array` | No |  |
-| `id` | `int` | No |  |
-| `link` | `string` | No |  |
-| `meta` | `array` | No |  |
-| `modified` | `string` | No |  |
-| `modified_gmt` | `string` | No |  |
-| `ping_status` | `string` | No |  |
-| `slug` | `string` | No |  |
-| `status` | `string` | No |  |
-| `sticky` | `bool` | No |  |
-| `tags` | `array` | No |  |
-| `template` | `string` | No |  |
+| `id` | `int` | No | Unique identifier for the post |
+| `link` | `string` | No | URL to the post |
+| `meta` | `array` | No | Meta fields |
+| `modified` | `string` | No | The date the post was last modified, in the site's timezone |
+| `modified_gmt` | `string` | No | The date the post was last modified, as GMT |
+| `ping_status` | `string` | No | Whether or not the post can be pinged |
+| `slug` | `string` | No | An alphanumeric identifier for the post unique to its type |
+| `status` | `string` | No | A named status for the post |
+| `sticky` | `bool` | No | Whether or not the post should be treated as sticky |
+| `tags` | `array` | No | The terms assigned to the post in the post_tag taxonomy |
+| `template` | `string` | No | The theme file to use to display the post |
 | `title` | `array` | No |  |
-| `type` | `string` | No |  |
+| `type` | `string` | No | Type of post |
 
 ### Operations
 

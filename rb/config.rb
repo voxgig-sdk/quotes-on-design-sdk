@@ -28,6 +28,7 @@ module QuotesOnDesignConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {

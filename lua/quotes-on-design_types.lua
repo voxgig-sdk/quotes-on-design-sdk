@@ -33,31 +33,13 @@
 
 ---@class PostLoadMatch
 ---@field id number
+---@field embed? boolean
 
 ---@class PostListMatch
----@field author? number
----@field categories? table
----@field comment_status? string
----@field content? table
----@field date? string
----@field date_gmt? string
----@field excerpt? table
----@field featured_media? number
----@field format? string
----@field guid? table
----@field id? number
----@field link? string
----@field meta? table
----@field modified? string
----@field modified_gmt? string
----@field ping_status? string
----@field slug? string
----@field status? string
----@field sticky? boolean
----@field tags? table
----@field template? string
----@field title? table
----@field type? string
+---@field embed? boolean
+---@field orderby? string
+---@field page? number
+---@field per_page? number
 
 local M = {}
 

@@ -42,33 +42,15 @@ type Post struct {
 // PostLoadMatch is the typed request payload for Post.LoadTyped.
 type PostLoadMatch struct {
 	Id int `json:"id"`
+	Embed *bool `json:"embed,omitempty"`
 }
 
 // PostListMatch is the typed request payload for Post.ListTyped.
 type PostListMatch struct {
-	Author *int `json:"author,omitempty"`
-	Categories *[]any `json:"categories,omitempty"`
-	CommentStatus *string `json:"comment_status,omitempty"`
-	Content *map[string]any `json:"content,omitempty"`
-	Date *string `json:"date,omitempty"`
-	DateGmt *string `json:"date_gmt,omitempty"`
-	Excerpt *map[string]any `json:"excerpt,omitempty"`
-	FeaturedMedia *int `json:"featured_media,omitempty"`
-	Format *string `json:"format,omitempty"`
-	Guid *map[string]any `json:"guid,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Link *string `json:"link,omitempty"`
-	Meta *map[string]any `json:"meta,omitempty"`
-	Modified *string `json:"modified,omitempty"`
-	ModifiedGmt *string `json:"modified_gmt,omitempty"`
-	PingStatus *string `json:"ping_status,omitempty"`
-	Slug *string `json:"slug,omitempty"`
-	Status *string `json:"status,omitempty"`
-	Sticky *bool `json:"sticky,omitempty"`
-	Tags *[]any `json:"tags,omitempty"`
-	Template *string `json:"template,omitempty"`
-	Title *map[string]any `json:"title,omitempty"`
-	Type *string `json:"type,omitempty"`
+	Embed *bool `json:"embed,omitempty"`
+	Orderby *string `json:"orderby,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PerPage *int `json:"per_page,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

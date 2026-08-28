@@ -109,105 +109,33 @@ Post = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [Integer]
+#
+# @!attribute [rw] embed
+#   @return [Boolean, nil]
 PostLoadMatch = Struct.new(
   :id,
+  :embed,
   keyword_init: true
 )
 
 # Request payload for Post#list.
 #
-# @!attribute [rw] author
-#   @return [Integer, nil]
-#
-# @!attribute [rw] categories
-#   @return [Array, nil]
-#
-# @!attribute [rw] comment_status
-#   @return [String, nil]
-#
-# @!attribute [rw] content
-#   @return [Hash, nil]
-#
-# @!attribute [rw] date
-#   @return [String, nil]
-#
-# @!attribute [rw] date_gmt
-#   @return [String, nil]
-#
-# @!attribute [rw] excerpt
-#   @return [Hash, nil]
-#
-# @!attribute [rw] featured_media
-#   @return [Integer, nil]
-#
-# @!attribute [rw] format
-#   @return [String, nil]
-#
-# @!attribute [rw] guid
-#   @return [Hash, nil]
-#
-# @!attribute [rw] id
-#   @return [Integer, nil]
-#
-# @!attribute [rw] link
-#   @return [String, nil]
-#
-# @!attribute [rw] meta
-#   @return [Hash, nil]
-#
-# @!attribute [rw] modified
-#   @return [String, nil]
-#
-# @!attribute [rw] modified_gmt
-#   @return [String, nil]
-#
-# @!attribute [rw] ping_status
-#   @return [String, nil]
-#
-# @!attribute [rw] slug
-#   @return [String, nil]
-#
-# @!attribute [rw] status
-#   @return [String, nil]
-#
-# @!attribute [rw] sticky
+# @!attribute [rw] embed
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] tags
-#   @return [Array, nil]
-#
-# @!attribute [rw] template
+# @!attribute [rw] orderby
 #   @return [String, nil]
 #
-# @!attribute [rw] title
-#   @return [Hash, nil]
+# @!attribute [rw] page
+#   @return [Integer, nil]
 #
-# @!attribute [rw] type
-#   @return [String, nil]
+# @!attribute [rw] per_page
+#   @return [Integer, nil]
 PostListMatch = Struct.new(
-  :author,
-  :categories,
-  :comment_status,
-  :content,
-  :date,
-  :date_gmt,
-  :excerpt,
-  :featured_media,
-  :format,
-  :guid,
-  :id,
-  :link,
-  :meta,
-  :modified,
-  :modified_gmt,
-  :ping_status,
-  :slug,
-  :status,
-  :sticky,
-  :tags,
-  :template,
-  :title,
-  :type,
+  :embed,
+  :orderby,
+  :page,
+  :per_page,
   keyword_init: true
 )
 

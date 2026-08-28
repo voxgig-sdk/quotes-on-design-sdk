@@ -42,31 +42,16 @@ class Post(TypedDict, total=False):
     type: str
 
 
-class PostLoadMatch(TypedDict):
+class PostLoadMatchRequired(TypedDict):
     id: int
+
+
+class PostLoadMatch(PostLoadMatchRequired, total=False):
+    embed: bool
 
 
 class PostListMatch(TypedDict, total=False):
-    author: int
-    categories: list
-    comment_status: str
-    content: dict
-    date: str
-    date_gmt: str
-    excerpt: dict
-    featured_media: int
-    format: str
-    guid: dict
-    id: int
-    link: str
-    meta: dict
-    modified: str
-    modified_gmt: str
-    ping_status: str
-    slug: str
-    status: str
-    sticky: bool
-    tags: list
-    template: str
-    title: dict
-    type: str
+    embed: bool
+    orderby: str
+    page: int
+    per_page: int

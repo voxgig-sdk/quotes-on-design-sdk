@@ -44,33 +44,15 @@ class Post
 class PostLoadMatch
 {
     public int $id;
+    public ?bool $embed = null;
 }
 
 /** Request payload for Post#list. */
 class PostListMatch
 {
-    public ?int $author = null;
-    public ?array $categories = null;
-    public ?string $comment_status = null;
-    public ?array $content = null;
-    public ?string $date = null;
-    public ?string $date_gmt = null;
-    public ?array $excerpt = null;
-    public ?int $featured_media = null;
-    public ?string $format = null;
-    public ?array $guid = null;
-    public ?int $id = null;
-    public ?string $link = null;
-    public ?array $meta = null;
-    public ?string $modified = null;
-    public ?string $modified_gmt = null;
-    public ?string $ping_status = null;
-    public ?string $slug = null;
-    public ?string $status = null;
-    public ?bool $sticky = null;
-    public ?array $tags = null;
-    public ?string $template = null;
-    public ?array $title = null;
-    public ?string $type = null;
+    public ?bool $embed = null;
+    public ?string $orderby = null;
+    public ?int $page = null;
+    public ?int $per_page = null;
 }
 

@@ -77,11 +77,13 @@ class QuotesOnDesignConfig
               'type' => '`$OBJECT`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'date',
               'short' => 'The date the post was published, in the site\'s timezone',
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'date_gmt',
               'short' => 'The date the post was published, as GMT',
               'type' => '`$STRING`',
@@ -110,6 +112,7 @@ class QuotesOnDesignConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'uri',
               'name' => 'link',
               'short' => 'URL to the post',
               'type' => '`$STRING`',
@@ -120,11 +123,13 @@ class QuotesOnDesignConfig
               'type' => '`$OBJECT`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'modified',
               'short' => 'The date the post was last modified, in the site\'s timezone',
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'modified_gmt',
               'short' => 'The date the post was last modified, as GMT',
               'type' => '`$STRING`',
@@ -169,6 +174,10 @@ class QuotesOnDesignConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'post',
           'op' => [
             'list' => [
@@ -211,8 +220,10 @@ class QuotesOnDesignConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/posts/',
-                  'parts' => [
-                    'posts',
+                  'segments' => [
+                    [
+                      'lit' => 'posts',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -225,6 +236,9 @@ class QuotesOnDesignConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'posts',
                   ],
                 ],
               ],
@@ -257,9 +271,13 @@ class QuotesOnDesignConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/posts/{id}',
-                  'parts' => [
-                    'posts',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'posts',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -270,6 +288,10 @@ class QuotesOnDesignConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'posts',
+                    '{id}',
                   ],
                 ],
               ],

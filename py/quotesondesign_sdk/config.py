@@ -1,6 +1,14 @@
 # QuotesOnDesign SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -72,11 +80,13 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "date-time",
             "name": "date",
             "short": "The date the post was published, in the site's timezone",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "date_gmt",
             "short": "The date the post was published, as GMT",
             "type": "`$STRING`",
@@ -105,6 +115,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "link",
             "short": "URL to the post",
             "type": "`$STRING`",
@@ -115,11 +126,13 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "date-time",
             "name": "modified",
             "short": "The date the post was last modified, in the site's timezone",
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "modified_gmt",
             "short": "The date the post was last modified, as GMT",
             "type": "`$STRING`",
@@ -164,6 +177,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "post",
         "op": {
           "list": {
@@ -206,8 +223,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/posts/",
-                "parts": [
-                  "posts",
+                "segments": [
+                  {
+                    "lit": "posts",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -221,6 +240,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "posts",
+                ],
               },
             ],
           },
@@ -252,9 +274,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/posts/{id}",
-                "parts": [
-                  "posts",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "posts",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -266,6 +292,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "posts",
+                  "{id}",
+                ],
               },
             ],
           },

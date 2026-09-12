@@ -29,12 +29,14 @@ main: kit: entity: post: {
       type: "`$OBJECT`"
     }
     {
+      format: "date-time"
       name: "date"
       req: false
       short: "The date the post was published, in the site's timezone"
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "date_gmt"
       req: false
       short: "The date the post was published, as GMT"
@@ -69,6 +71,7 @@ main: kit: entity: post: {
       type: "`$INTEGER`"
     }
     {
+      format: "uri"
       name: "link"
       req: false
       short: "URL to the post"
@@ -81,12 +84,14 @@ main: kit: entity: post: {
       type: "`$OBJECT`"
     }
     {
+      format: "date-time"
       name: "modified"
       req: false
       short: "The date the post was last modified, in the site's timezone"
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "modified_gmt"
       req: false
       short: "The date the post was last modified, as GMT"
@@ -190,8 +195,10 @@ main: kit: entity: post: {
           }
           method: "GET"
           orig: "/posts/"
-          parts: [
-            "posts"
+          segments: [
+            {
+              lit: "posts"
+            }
           ]
           select: {
             exist: [
@@ -235,9 +242,13 @@ main: kit: entity: post: {
           }
           method: "GET"
           orig: "/posts/{id}"
-          parts: [
-            "posts"
-            "{id}"
+          segments: [
+            {
+              lit: "posts"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

@@ -105,7 +105,7 @@ local results, err = client:Post():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/quotes-on-design` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quotes-on-design-sdk/releases) |
+| TypeScript | `@voxgig-sdk/quotes-on-design-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quotes-on-design-sdk/releases) |
 | Python | `voxgig-sdk-quotes-on-design` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quotes-on-design-sdk/releases) |
 | PHP | `voxgig-sdk/quotes-on-design` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quotes-on-design-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/quotes-on-design-sdk/go` | `go get github.com/voxgig-sdk/quotes-on-design-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Post():list()
 ### TypeScript
 
 ```ts
-import { QuotesOnDesignSDK } from '@voxgig-sdk/quotes-on-design'
+import { QuotesOnDesignSDK } from '@voxgig-sdk/quotes-on-design-sdk'
 
 const client = new QuotesOnDesignSDK()
 

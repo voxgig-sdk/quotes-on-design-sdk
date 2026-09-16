@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "post": {
           "active": true,
@@ -247,6 +311,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /posts/",
+                    "json": "{\"operationId\":\"getPosts\",\"parameters\":[{\"description\":\"Order posts by a specific field. Use 'rand' for randomized results.\",\"in\":\"query\",\"name\":\"orderby\",\"required\":false,\"schema\":{\"default\":\"date\",\"enum\":[\"date\",\"id\",\"title\",\"rand\"],\"type\":\"string\"}},{\"description\":\"Number of posts to retrieve per page\",\"in\":\"query\",\"name\":\"per_page\",\"required\":false,\"schema\":{\"default\":10,\"maximum\":100,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Page number of results to retrieve\",\"in\":\"query\",\"name\":\"page\",\"required\":false,\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Include embedded resources in the response\",\"in\":\"query\",\"name\":\"_embed\",\"required\":false,\"schema\":{\"default\":false,\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":[{\"content\":{\"protected\":false,\"rendered\":\"<p>Design is not just what it looks like and feels like. Design is how it works.</p>\"},\"date\":\"2023-01-15T10:30:00\",\"date_gmt\":\"2023-01-15T10:30:00\",\"excerpt\":{\"protected\":false,\"rendered\":\"<p>Design is not just what it looks like and feels like.</p>\"},\"id\":1234,\"link\":\"https://quotesondesign.com/sample-design-quote/\",\"modified\":\"2023-01-15T10:30:00\",\"modified_gmt\":\"2023-01-15T10:30:00\",\"slug\":\"sample-design-quote\",\"status\":\"publish\",\"title\":{\"rendered\":\"Author Name\"},\"type\":\"post\"}],\"schema\":{\"items\":{\"properties\":{\"author\":{\"description\":\"The ID for the author of the post\",\"type\":\"integer\"},\"categories\":{\"description\":\"The terms assigned to the post in the category taxonomy\",\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"comment_status\":{\"description\":\"Whether or not comments are open on the post\",\"type\":\"string\"},\"content\":{\"properties\":{\"protected\":{\"description\":\"Whether the content is protected with a password\",\"type\":\"boolean\"},\"rendered\":{\"description\":\"HTML content for the post, transformed for display\",\"type\":\"string\"}},\"type\":\"object\"},\"date\":{\"description\":\"The date the post was published, in the site's timezone\",\"format\":\"date-time\",\"type\":\"string\"},\"date_gmt\":{\"description\":\"The date the post was published, as GMT\",\"format\":\"date-time\",\"type\":\"string\"},\"excerpt\":{\"properties\":{\"protected\":{\"description\":\"Whether the excerpt is protected with a password\",\"type\":\"boolean\"},\"rendered\":{\"description\":\"HTML excerpt for the post, transformed for display\",\"type\":\"string\"}},\"type\":\"object\"},\"featured_media\":{\"description\":\"The ID of the featured media for the post\",\"type\":\"integer\"},\"format\":{\"description\":\"The format for the post\",\"type\":\"string\"},\"guid\":{\"properties\":{\"rendered\":{\"description\":\"GUID for the post, as it exists in the database\",\"type\":\"string\"}},\"type\":\"object\"},\"id\":{\"description\":\"Unique identifier for the post\",\"type\":\"integer\"},\"link\":{\"description\":\"URL to the post\",\"format\":\"uri\",\"type\":\"string\"},\"meta\":{\"description\":\"Meta fields\",\"type\":\"object\"},\"modified\":{\"description\":\"The date the post was last modified, in the site's timezone\",\"format\":\"date-time\",\"type\":\"string\"},\"modified_gmt\":{\"description\":\"The date the post was last modified, as GMT\",\"format\":\"date-time\",\"type\":\"string\"},\"ping_status\":{\"description\":\"Whether or not the post can be pinged\",\"type\":\"string\"},\"slug\":{\"description\":\"An alphanumeric identifier for the post unique to its type\",\"type\":\"string\"},\"status\":{\"description\":\"A named status for the post\",\"type\":\"string\"},\"sticky\":{\"description\":\"Whether or not the post should be treated as sticky\",\"type\":\"boolean\"},\"tags\":{\"description\":\"The terms assigned to the post in the post_tag taxonomy\",\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"template\":{\"description\":\"The theme file to use to display the post\",\"type\":\"string\"},\"title\":{\"properties\":{\"rendered\":{\"description\":\"HTML title for the post, transformed for display\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":{\"description\":\"Type of post\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with an array of quote posts\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"data\":{\"properties\":{\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - Invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"data\":{\"properties\":{\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/posts/",
@@ -299,6 +369,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /posts/{id}",
+                    "json": "{\"operationId\":\"getPostById\",\"parameters\":[{\"description\":\"Unique identifier of the post\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Include embedded resources in the response\",\"in\":\"query\",\"name\":\"_embed\",\"required\":false,\"schema\":{\"default\":false,\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"content\":{\"protected\":false,\"rendered\":\"<p>Design is not just what it looks like and feels like. Design is how it works.</p>\"},\"date\":\"2023-01-15T10:30:00\",\"date_gmt\":\"2023-01-15T10:30:00\",\"excerpt\":{\"protected\":false,\"rendered\":\"<p>Design is not just what it looks like and feels like.</p>\"},\"id\":1234,\"link\":\"https://quotesondesign.com/sample-design-quote/\",\"modified\":\"2023-01-15T10:30:00\",\"modified_gmt\":\"2023-01-15T10:30:00\",\"slug\":\"sample-design-quote\",\"status\":\"publish\",\"title\":{\"rendered\":\"Author Name\"},\"type\":\"post\"},\"schema\":{\"properties\":{\"author\":{\"description\":\"The ID for the author of the post\",\"type\":\"integer\"},\"categories\":{\"description\":\"The terms assigned to the post in the category taxonomy\",\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"comment_status\":{\"description\":\"Whether or not comments are open on the post\",\"type\":\"string\"},\"content\":{\"properties\":{\"protected\":{\"description\":\"Whether the content is protected with a password\",\"type\":\"boolean\"},\"rendered\":{\"description\":\"HTML content for the post, transformed for display\",\"type\":\"string\"}},\"type\":\"object\"},\"date\":{\"description\":\"The date the post was published, in the site's timezone\",\"format\":\"date-time\",\"type\":\"string\"},\"date_gmt\":{\"description\":\"The date the post was published, as GMT\",\"format\":\"date-time\",\"type\":\"string\"},\"excerpt\":{\"properties\":{\"protected\":{\"description\":\"Whether the excerpt is protected with a password\",\"type\":\"boolean\"},\"rendered\":{\"description\":\"HTML excerpt for the post, transformed for display\",\"type\":\"string\"}},\"type\":\"object\"},\"featured_media\":{\"description\":\"The ID of the featured media for the post\",\"type\":\"integer\"},\"format\":{\"description\":\"The format for the post\",\"type\":\"string\"},\"guid\":{\"properties\":{\"rendered\":{\"description\":\"GUID for the post, as it exists in the database\",\"type\":\"string\"}},\"type\":\"object\"},\"id\":{\"description\":\"Unique identifier for the post\",\"type\":\"integer\"},\"link\":{\"description\":\"URL to the post\",\"format\":\"uri\",\"type\":\"string\"},\"meta\":{\"description\":\"Meta fields\",\"type\":\"object\"},\"modified\":{\"description\":\"The date the post was last modified, in the site's timezone\",\"format\":\"date-time\",\"type\":\"string\"},\"modified_gmt\":{\"description\":\"The date the post was last modified, as GMT\",\"format\":\"date-time\",\"type\":\"string\"},\"ping_status\":{\"description\":\"Whether or not the post can be pinged\",\"type\":\"string\"},\"slug\":{\"description\":\"An alphanumeric identifier for the post unique to its type\",\"type\":\"string\"},\"status\":{\"description\":\"A named status for the post\",\"type\":\"string\"},\"sticky\":{\"description\":\"Whether or not the post should be treated as sticky\",\"type\":\"boolean\"},\"tags\":{\"description\":\"The terms assigned to the post in the post_tag taxonomy\",\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"template\":{\"description\":\"The theme file to use to display the post\",\"type\":\"string\"},\"title\":{\"properties\":{\"rendered\":{\"description\":\"HTML title for the post, transformed for display\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":{\"description\":\"Type of post\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with a single quote post\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"data\":{\"properties\":{\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Post not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"data\":{\"properties\":{\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/posts/{id}",
@@ -330,13 +406,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -427,6 +713,102 @@
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
           "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
+          "version": "0.0.1"
         }
       },
       "flow": {
@@ -499,6 +881,48 @@
         "website": "https://quotesondesign.com/api/"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -1053,6 +1477,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -1094,7 +1519,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }

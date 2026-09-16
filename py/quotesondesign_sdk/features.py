@@ -1,12 +1,18 @@
 # QuotesOnDesign SDK feature factory
 
 from quotesondesign_sdk.feature.base_feature import QuotesOnDesignBaseFeature
+from quotesondesign_sdk.feature.ratelimit_feature import QuotesOnDesignRatelimitFeature
+from quotesondesign_sdk.feature.retry_feature import QuotesOnDesignRetryFeature
 from quotesondesign_sdk.feature.test_feature import QuotesOnDesignTestFeature
+from quotesondesign_sdk.feature.timeout_feature import QuotesOnDesignTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: QuotesOnDesignBaseFeature(),
+    "ratelimit": lambda: QuotesOnDesignRatelimitFeature(),
+    "retry": lambda: QuotesOnDesignRetryFeature(),
     "test": lambda: QuotesOnDesignTestFeature(),
+    "timeout": lambda: QuotesOnDesignTimeoutFeature(),
 }
 
 

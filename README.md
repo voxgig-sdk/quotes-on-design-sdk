@@ -105,12 +105,12 @@ local results, err = client:Post():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/quotes-on-design-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quotes-on-design-sdk/releases) |
-| Python | `voxgig-sdk-quotes-on-design` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quotes-on-design-sdk/releases) |
-| PHP | `voxgig-sdk/quotes-on-design` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quotes-on-design-sdk/releases) |
+| TypeScript | `@voxgig-sdk/quotes-on-design-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quotes-on-design-sdk/tags) |
+| Python | `voxgig-sdk-quotes-on-design` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quotes-on-design-sdk/tags) |
+| PHP | `voxgig-sdk/quotes-on-design` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quotes-on-design-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/quotes-on-design-sdk/go` | `go get github.com/voxgig-sdk/quotes-on-design-sdk/go@latest` |
-| Ruby | `voxgig-sdk-quotes-on-design` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quotes-on-design-sdk/releases) |
-| Lua | `voxgig-sdk-quotes-on-design` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quotes-on-design-sdk/releases) |
+| Ruby | `voxgig-sdk-quotes-on-design` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quotes-on-design-sdk/tags) |
+| Lua | `voxgig-sdk-quotes-on-design` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quotes-on-design-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/quotes-on-design-sdk/go-cli` | `go install github.com/voxgig-sdk/quotes-on-design-sdk/go-cli/cmd/quotes-on-design@latest` |
 | Go MCP server | `github.com/voxgig-sdk/quotes-on-design-sdk/go-mcp` | `go get github.com/voxgig-sdk/quotes-on-design-sdk/go-mcp@latest` |
 

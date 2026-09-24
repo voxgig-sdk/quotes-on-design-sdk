@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -139,119 +132,142 @@ class Config {
       "fields": [
         {
           "name": "author",
-          "short": "The ID for the author of the post",
-          "type": "`$INTEGER`"
+          "title": "Author",
+          "type": "`$INTEGER`",
+          "short": "The ID for the author of the post"
         },
         {
           "name": "categories",
-          "short": "The terms assigned to the post in the category taxonomy",
-          "type": "`$ARRAY`"
+          "title": "Categories",
+          "type": "`$ARRAY`",
+          "short": "The terms assigned to the post in the category taxonomy"
         },
         {
           "name": "comment_status",
-          "short": "Whether or not comments are open on the post",
-          "type": "`$STRING`"
+          "title": "Comment Status",
+          "type": "`$STRING`",
+          "short": "Whether or not comments are open on the post"
         },
         {
           "name": "content",
+          "title": "Content",
           "type": "`$OBJECT`"
         },
         {
-          "format": "date-time",
           "name": "date",
+          "title": "Date",
+          "type": "`$STRING`",
           "short": "The date the post was published, in the site's timezone",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
-          "format": "date-time",
           "name": "date_gmt",
+          "title": "Date Gmt",
+          "type": "`$STRING`",
           "short": "The date the post was published, as GMT",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
           "name": "excerpt",
+          "title": "Excerpt",
           "type": "`$OBJECT`"
         },
         {
           "name": "featured_media",
-          "short": "The ID of the featured media for the post",
-          "type": "`$INTEGER`"
+          "title": "Featured Media",
+          "type": "`$INTEGER`",
+          "short": "The ID of the featured media for the post"
         },
         {
           "name": "format",
-          "short": "The format for the post",
-          "type": "`$STRING`"
+          "title": "Format",
+          "type": "`$STRING`",
+          "short": "The format for the post"
         },
         {
           "name": "guid",
+          "title": "Guid",
           "type": "`$OBJECT`"
         },
         {
           "name": "id",
-          "short": "Unique identifier for the post",
-          "type": "`$INTEGER`"
+          "title": "Id",
+          "type": "`$INTEGER`",
+          "short": "Unique identifier for the post"
         },
         {
-          "format": "uri",
           "name": "link",
+          "title": "Link",
+          "type": "`$STRING`",
           "short": "URL to the post",
-          "type": "`$STRING`"
+          "format": "uri"
         },
         {
           "name": "meta",
-          "short": "Meta fields",
-          "type": "`$OBJECT`"
+          "title": "Meta",
+          "type": "`$OBJECT`",
+          "short": "Meta fields"
         },
         {
-          "format": "date-time",
           "name": "modified",
+          "title": "Modified",
+          "type": "`$STRING`",
           "short": "The date the post was last modified, in the site's timezone",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
-          "format": "date-time",
           "name": "modified_gmt",
+          "title": "Modified Gmt",
+          "type": "`$STRING`",
           "short": "The date the post was last modified, as GMT",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
           "name": "ping_status",
-          "short": "Whether or not the post can be pinged",
-          "type": "`$STRING`"
+          "title": "Ping Status",
+          "type": "`$STRING`",
+          "short": "Whether or not the post can be pinged"
         },
         {
           "name": "slug",
-          "short": "An alphanumeric identifier for the post unique to its type",
-          "type": "`$STRING`"
+          "title": "Slug",
+          "type": "`$STRING`",
+          "short": "An alphanumeric identifier for the post unique to its type"
         },
         {
           "name": "status",
-          "short": "A named status for the post",
-          "type": "`$STRING`"
+          "title": "Status",
+          "type": "`$STRING`",
+          "short": "A named status for the post"
         },
         {
           "name": "sticky",
-          "short": "Whether or not the post should be treated as sticky",
-          "type": "`$BOOLEAN`"
+          "title": "Sticky",
+          "type": "`$BOOLEAN`",
+          "short": "Whether or not the post should be treated as sticky"
         },
         {
           "name": "tags",
-          "short": "The terms assigned to the post in the post_tag taxonomy",
-          "type": "`$ARRAY`"
+          "title": "Tags",
+          "type": "`$ARRAY`",
+          "short": "The terms assigned to the post in the post_tag taxonomy"
         },
         {
           "name": "template",
-          "short": "The theme file to use to display the post",
-          "type": "`$STRING`"
+          "title": "Template",
+          "type": "`$STRING`",
+          "short": "The theme file to use to display the post"
         },
         {
           "name": "title",
+          "title": "Title",
           "type": "`$OBJECT`"
         },
         {
           "name": "type",
-          "short": "Type of post",
-          "type": "`$STRING`"
+          "title": "Type",
+          "type": "`$STRING`",
+          "short": "Type of post"
         }
       ],
       "id": {
@@ -265,38 +281,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": false,
-                    "kind": "query",
-                    "name": "embed",
-                    "orig": "embed",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "example": "date",
-                    "kind": "query",
-                    "name": "orderby",
-                    "orig": "orderby",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": 1,
-                    "kind": "query",
-                    "name": "page",
-                    "orig": "page",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": 10,
-                    "kind": "query",
-                    "name": "per_page",
-                    "orig": "per_page",
-                    "type": "`$INTEGER`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/posts/",
@@ -305,6 +289,46 @@ class Config {
                   "lit": "posts"
                 }
               ],
+              "parts": [
+                "posts"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "embed",
+                    "orig": "embed",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query",
+                    "example": false
+                  },
+                  {
+                    "name": "orderby",
+                    "orig": "orderby",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "date"
+                  },
+                  {
+                    "name": "page",
+                    "orig": "page",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 1
+                  },
+                  {
+                    "name": "per_page",
+                    "orig": "per_page",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 10
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "embed",
@@ -312,14 +336,7 @@ class Config {
                   "page",
                   "per_page"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "posts"
-              ]
+              }
             }
           ]
         },
@@ -328,26 +345,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$INTEGER`"
-                  }
-                ],
-                "query": [
-                  {
-                    "example": false,
-                    "kind": "query",
-                    "name": "embed",
-                    "orig": "embed",
-                    "type": "`$BOOLEAN`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/posts/{id}",
@@ -359,20 +356,41 @@ class Config {
                   "var": "id"
                 }
               ],
+              "parts": [
+                "posts",
+                "{id}"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$INTEGER`",
+                    "kind": "param",
+                    "reqd": true
+                  }
+                ],
+                "query": [
+                  {
+                    "name": "embed",
+                    "orig": "embed",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query",
+                    "example": false
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "embed",
                   "id"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "posts",
-                "{id}"
-              ]
+              }
             }
           ]
         }

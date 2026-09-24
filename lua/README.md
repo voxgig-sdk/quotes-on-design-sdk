@@ -43,7 +43,7 @@ local posts, err = client:Post():list()
 if err then error(err) end
 
 for _, item in ipairs(posts) do
-  print(item["id"], item["comment_status"])
+  print(item["id"])
 end
 ```
 

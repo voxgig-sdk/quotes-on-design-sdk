@@ -1,7 +1,7 @@
 // Typed models for the QuotesOnDesign SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,29 +14,6 @@ import (
 
 // Post is the typed data model for the post entity.
 type Post struct {
-	Author *int `json:"author,omitempty"`
-	Categories *[]any `json:"categories,omitempty"`
-	CommentStatus *string `json:"comment_status,omitempty"`
-	Content *map[string]any `json:"content,omitempty"`
-	Date *string `json:"date,omitempty"`
-	DateGmt *string `json:"date_gmt,omitempty"`
-	Excerpt *map[string]any `json:"excerpt,omitempty"`
-	FeaturedMedia *int `json:"featured_media,omitempty"`
-	Format *string `json:"format,omitempty"`
-	Guid *map[string]any `json:"guid,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Link *string `json:"link,omitempty"`
-	Meta *map[string]any `json:"meta,omitempty"`
-	Modified *string `json:"modified,omitempty"`
-	ModifiedGmt *string `json:"modified_gmt,omitempty"`
-	PingStatus *string `json:"ping_status,omitempty"`
-	Slug *string `json:"slug,omitempty"`
-	Status *string `json:"status,omitempty"`
-	Sticky *bool `json:"sticky,omitempty"`
-	Tags *[]any `json:"tags,omitempty"`
-	Template *string `json:"template,omitempty"`
-	Title *map[string]any `json:"title,omitempty"`
-	Type *string `json:"type,omitempty"`
 }
 
 // PostLoadMatch is the typed request payload for Post.LoadTyped.

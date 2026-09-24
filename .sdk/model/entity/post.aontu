@@ -1,0 +1,303 @@
+# Entity: post
+
+main: kit: entity: post: {
+
+  alias: field: {}
+
+  fields: {
+    author: {
+      h: "Author"
+      n: "author"
+      r: false
+      sh: "The ID for the author of the post"
+      t: "`$INTEGER`"
+    }
+    categories: {
+      h: "Categories"
+      n: "categories"
+      r: false
+      sh: "The terms assigned to the post in the category taxonomy"
+      t: "`$ARRAY`"
+    }
+    comment_status: {
+      h: "Comment Status"
+      n: "comment_status"
+      r: false
+      sh: "Whether or not comments are open on the post"
+      t: "`$STRING`"
+    }
+    content: {
+      h: "Content"
+      n: "content"
+      r: false
+      t: "`$OBJECT`"
+    }
+    date: {
+      fo: "date-time"
+      h: "Date"
+      n: "date"
+      r: false
+      sh: "The date the post was published, in the site's timezone"
+      t: "`$STRING`"
+    }
+    date_gmt: {
+      fo: "date-time"
+      h: "Date Gmt"
+      n: "date_gmt"
+      r: false
+      sh: "The date the post was published, as GMT"
+      t: "`$STRING`"
+    }
+    excerpt: {
+      h: "Excerpt"
+      n: "excerpt"
+      r: false
+      t: "`$OBJECT`"
+    }
+    featured_media: {
+      h: "Featured Media"
+      n: "featured_media"
+      r: false
+      sh: "The ID of the featured media for the post"
+      t: "`$INTEGER`"
+    }
+    format: {
+      h: "Format"
+      n: "format"
+      r: false
+      sh: "The format for the post"
+      t: "`$STRING`"
+    }
+    guid: {
+      h: "Guid"
+      n: "guid"
+      r: false
+      t: "`$OBJECT`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the post"
+      t: "`$INTEGER`"
+    }
+    link: {
+      fo: "uri"
+      h: "Link"
+      n: "link"
+      r: false
+      sh: "URL to the post"
+      t: "`$STRING`"
+    }
+    meta: {
+      h: "Meta"
+      n: "meta"
+      r: false
+      sh: "Meta fields"
+      t: "`$OBJECT`"
+    }
+    modified: {
+      fo: "date-time"
+      h: "Modified"
+      n: "modified"
+      r: false
+      sh: "The date the post was last modified, in the site's timezone"
+      t: "`$STRING`"
+    }
+    modified_gmt: {
+      fo: "date-time"
+      h: "Modified Gmt"
+      n: "modified_gmt"
+      r: false
+      sh: "The date the post was last modified, as GMT"
+      t: "`$STRING`"
+    }
+    ping_status: {
+      h: "Ping Status"
+      n: "ping_status"
+      r: false
+      sh: "Whether or not the post can be pinged"
+      t: "`$STRING`"
+    }
+    slug: {
+      h: "Slug"
+      n: "slug"
+      r: false
+      sh: "An alphanumeric identifier for the post unique to its type"
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "A named status for the post"
+      t: "`$STRING`"
+    }
+    sticky: {
+      h: "Sticky"
+      n: "sticky"
+      r: false
+      sh: "Whether or not the post should be treated as sticky"
+      t: "`$BOOLEAN`"
+    }
+    tags: {
+      h: "Tags"
+      n: "tags"
+      r: false
+      sh: "The terms assigned to the post in the post_tag taxonomy"
+      t: "`$ARRAY`"
+    }
+    template: {
+      h: "Template"
+      n: "template"
+      r: false
+      sh: "The theme file to use to display the post"
+      t: "`$STRING`"
+    }
+    title: {
+      h: "Title"
+      n: "title"
+      r: false
+      t: "`$OBJECT`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "Type of post"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "post"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /posts/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: false
+                k: "query"
+                n: "embed"
+                or: "embed"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: "date"
+                k: "query"
+                n: "orderby"
+                or: "orderby"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/posts/"
+          q: {
+            exist: [
+              "embed"
+              "orderby"
+              "page"
+              "per_page"
+            ]
+          }
+          s: [
+            {
+              lit: "posts"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /posts/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: false
+                k: "query"
+                n: "embed"
+                or: "embed"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/posts/{id}"
+          q: {
+            exist: [
+              "embed"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "posts"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

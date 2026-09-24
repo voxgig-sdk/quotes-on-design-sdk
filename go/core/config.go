@@ -91,119 +91,142 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "author",
-						"short": "The ID for the author of the post",
+						"title": "Author",
 						"type": "`$INTEGER`",
+						"short": "The ID for the author of the post",
 					},
 					map[string]any{
 						"name": "categories",
-						"short": "The terms assigned to the post in the category taxonomy",
+						"title": "Categories",
 						"type": "`$ARRAY`",
+						"short": "The terms assigned to the post in the category taxonomy",
 					},
 					map[string]any{
 						"name": "comment_status",
-						"short": "Whether or not comments are open on the post",
+						"title": "Comment Status",
 						"type": "`$STRING`",
+						"short": "Whether or not comments are open on the post",
 					},
 					map[string]any{
 						"name": "content",
+						"title": "Content",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "date",
-						"short": "The date the post was published, in the site's timezone",
+						"title": "Date",
 						"type": "`$STRING`",
+						"short": "The date the post was published, in the site's timezone",
+						"format": "date-time",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "date_gmt",
-						"short": "The date the post was published, as GMT",
+						"title": "Date Gmt",
 						"type": "`$STRING`",
+						"short": "The date the post was published, as GMT",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "excerpt",
+						"title": "Excerpt",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "featured_media",
-						"short": "The ID of the featured media for the post",
+						"title": "Featured Media",
 						"type": "`$INTEGER`",
+						"short": "The ID of the featured media for the post",
 					},
 					map[string]any{
 						"name": "format",
-						"short": "The format for the post",
+						"title": "Format",
 						"type": "`$STRING`",
+						"short": "The format for the post",
 					},
 					map[string]any{
 						"name": "guid",
+						"title": "Guid",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the post",
+						"title": "Id",
 						"type": "`$INTEGER`",
+						"short": "Unique identifier for the post",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "link",
-						"short": "URL to the post",
+						"title": "Link",
 						"type": "`$STRING`",
+						"short": "URL to the post",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "meta",
-						"short": "Meta fields",
+						"title": "Meta",
 						"type": "`$OBJECT`",
+						"short": "Meta fields",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "modified",
-						"short": "The date the post was last modified, in the site's timezone",
+						"title": "Modified",
 						"type": "`$STRING`",
+						"short": "The date the post was last modified, in the site's timezone",
+						"format": "date-time",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "modified_gmt",
-						"short": "The date the post was last modified, as GMT",
+						"title": "Modified Gmt",
 						"type": "`$STRING`",
+						"short": "The date the post was last modified, as GMT",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "ping_status",
-						"short": "Whether or not the post can be pinged",
+						"title": "Ping Status",
 						"type": "`$STRING`",
+						"short": "Whether or not the post can be pinged",
 					},
 					map[string]any{
 						"name": "slug",
-						"short": "An alphanumeric identifier for the post unique to its type",
+						"title": "Slug",
 						"type": "`$STRING`",
+						"short": "An alphanumeric identifier for the post unique to its type",
 					},
 					map[string]any{
 						"name": "status",
-						"short": "A named status for the post",
+						"title": "Status",
 						"type": "`$STRING`",
+						"short": "A named status for the post",
 					},
 					map[string]any{
 						"name": "sticky",
-						"short": "Whether or not the post should be treated as sticky",
+						"title": "Sticky",
 						"type": "`$BOOLEAN`",
+						"short": "Whether or not the post should be treated as sticky",
 					},
 					map[string]any{
 						"name": "tags",
-						"short": "The terms assigned to the post in the post_tag taxonomy",
+						"title": "Tags",
 						"type": "`$ARRAY`",
+						"short": "The terms assigned to the post in the post_tag taxonomy",
 					},
 					map[string]any{
 						"name": "template",
-						"short": "The theme file to use to display the post",
+						"title": "Template",
 						"type": "`$STRING`",
+						"short": "The theme file to use to display the post",
 					},
 					map[string]any{
 						"name": "title",
+						"title": "Title",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "type",
-						"short": "Type of post",
+						"title": "Type",
 						"type": "`$STRING`",
+						"short": "Type of post",
 					},
 				},
 				"id": map[string]any{
@@ -217,44 +240,52 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": false,
-											"kind": "query",
-											"name": "embed",
-											"orig": "embed",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"example": "date",
-											"kind": "query",
-											"name": "orderby",
-											"orig": "orderby",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 1,
-											"kind": "query",
-											"name": "page",
-											"orig": "page",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 10,
-											"kind": "query",
-											"name": "per_page",
-											"orig": "per_page",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/posts/",
 								"segments": []any{
 									map[string]any{
 										"lit": "posts",
+									},
+								},
+								"parts": []any{
+									"posts",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "embed",
+											"orig": "embed",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+											"example": false,
+										},
+										map[string]any{
+											"name": "orderby",
+											"orig": "orderby",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "date",
+										},
+										map[string]any{
+											"name": "page",
+											"orig": "page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 1,
+										},
+										map[string]any{
+											"name": "per_page",
+											"orig": "per_page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 10,
+										},
 									},
 								},
 								"select": map[string]any{
@@ -265,13 +296,6 @@ func MakeConfig() map[string]any {
 										"per_page",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"posts",
-								},
 							},
 						},
 					},
@@ -280,26 +304,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": false,
-											"kind": "query",
-											"name": "embed",
-											"orig": "embed",
-											"type": "`$BOOLEAN`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/posts/{id}",
@@ -311,19 +315,40 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
+								"parts": []any{
+									"posts",
+									"{id}",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "embed",
+											"orig": "embed",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+											"example": false,
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"embed",
 										"id",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"posts",
-									"{id}",
 								},
 							},
 						},

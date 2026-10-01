@@ -268,7 +268,7 @@ module QuotesOnDesignConfig
                     "query" => [
                       {
                         "name" => "embed",
-                        "orig" => "embed",
+                        "orig" => "_embed",
                         "type" => "`$BOOLEAN`",
                         "kind" => "query",
                         "example" => false,
@@ -345,7 +345,7 @@ module QuotesOnDesignConfig
                     "query" => [
                       {
                         "name" => "embed",
-                        "orig" => "embed",
+                        "orig" => "_embed",
                         "type" => "`$BOOLEAN`",
                         "kind" => "query",
                         "example" => false,

@@ -282,7 +282,7 @@ class QuotesOnDesignConfig
                     'query' => [
                       [
                         'name' => 'embed',
-                        'orig' => 'embed',
+                        'orig' => '_embed',
                         'type' => '`$BOOLEAN`',
                         'kind' => 'query',
                         'example' => false,
@@ -359,7 +359,7 @@ class QuotesOnDesignConfig
                     'query' => [
                       [
                         'name' => 'embed',
-                        'orig' => 'embed',
+                        'orig' => '_embed',
                         'type' => '`$BOOLEAN`',
                         'kind' => 'query',
                         'example' => false,

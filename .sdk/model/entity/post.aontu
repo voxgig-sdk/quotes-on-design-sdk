@@ -191,7 +191,7 @@ main: kit: entity: post: {
                 ex: false
                 k: "query"
                 n: "embed"
-                or: "embed"
+                or: "_embed"
                 r: false
                 t: "`$BOOLEAN`"
               }
@@ -267,7 +267,7 @@ main: kit: entity: post: {
                 ex: false
                 k: "query"
                 n: "embed"
-                or: "embed"
+                or: "_embed"
                 r: false
                 t: "`$BOOLEAN`"
               }

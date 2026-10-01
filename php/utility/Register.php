@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 QuotesOnDesignUtility::setRegistrar(function (QuotesOnDesignUtility $u): void {
     $u->clean = [QuotesOnDesignClean::class, 'call'];
+    $u->clean_add = [QuotesOnDesignClean::class, 'add'];
+    $u->clean_explain = [QuotesOnDesignDone::class, 'clean_explain'];
     $u->done = [QuotesOnDesignDone::class, 'call'];
     $u->make_error = [QuotesOnDesignMakeError::class, 'call'];
     $u->feature_add = [QuotesOnDesignFeatureAdd::class, 'call'];

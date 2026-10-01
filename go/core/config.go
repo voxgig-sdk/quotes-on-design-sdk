@@ -260,7 +260,7 @@ func MakeConfig() map[string]any {
 									"query": []any{
 										map[string]any{
 											"name": "embed",
-											"orig": "embed",
+											"orig": "_embed",
 											"type": "`$BOOLEAN`",
 											"kind": "query",
 											"example": false,
@@ -337,7 +337,7 @@ func MakeConfig() map[string]any {
 									"query": []any{
 										map[string]any{
 											"name": "embed",
-											"orig": "embed",
+											"orig": "_embed",
 											"type": "`$BOOLEAN`",
 											"kind": "query",
 											"example": false,

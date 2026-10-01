@@ -276,7 +276,7 @@ class Config {
                                 "query": [
                                     {
                                         "name": "embed",
-                                        "orig": "embed",
+                                        "orig": "_embed",
                                         "type": "`$BOOLEAN`",
                                         "kind": "query",
                                         "example": false
@@ -353,7 +353,7 @@ class Config {
                                 "query": [
                                     {
                                         "name": "embed",
-                                        "orig": "embed",
+                                        "orig": "_embed",
                                         "type": "`$BOOLEAN`",
                                         "kind": "query",
                                         "example": false

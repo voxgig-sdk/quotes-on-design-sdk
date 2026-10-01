@@ -256,7 +256,7 @@ local function make_config()
                   ["query"] = {
                     {
                       ["name"] = "embed",
-                      ["orig"] = "embed",
+                      ["orig"] = "_embed",
                       ["type"] = "`$BOOLEAN`",
                       ["kind"] = "query",
                       ["example"] = false,
@@ -333,7 +333,7 @@ local function make_config()
                   ["query"] = {
                     {
                       ["name"] = "embed",
-                      ["orig"] = "embed",
+                      ["orig"] = "_embed",
                       ["type"] = "`$BOOLEAN`",
                       ["kind"] = "query",
                       ["example"] = false,

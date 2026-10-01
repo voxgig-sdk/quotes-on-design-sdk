@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 QuotesOnDesignUtility.registrar = ->(u) {
   u.clean = QuotesOnDesignUtilities::Clean
+  u.clean_add = QuotesOnDesignUtilities::CleanAdd
+  u.clean_explain = QuotesOnDesignUtilities::CleanExplain
   u.done = QuotesOnDesignUtilities::Done
   u.make_error = QuotesOnDesignUtilities::MakeError
   u.feature_add = QuotesOnDesignUtilities::FeatureAdd

@@ -3,5 +3,18 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Production server",
+      "Successful response with a single quote post",
+      "Successful response with an array of quote posts",
+      "The ID for the author of the post",
+      "The date the post was published, as GMT",
+      "The date the post was published, in the site&#39;s timezone",
+      "The terms assigned to the post in the category taxonomy",
+      "This API provides access to design-related quotes using the WordPress built-in REST API. It allows users to retrieve randomized quotes through a simplified request format, although it has limited features compared to previous versions. All other APIs have been discontinued, making this the primary source for quotes on design.",
+      "Whether or not comments are open on the post"
+    ]
+  }
 }

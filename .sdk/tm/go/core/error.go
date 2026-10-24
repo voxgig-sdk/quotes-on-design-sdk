@@ -12,6 +12,8 @@ type QuotesOnDesignError struct {
 	Ctx    *Context `json:"-"`
 	Result any
 	Spec   any
+	// The HTTP status, -1 when there was no response.
+	Status int
 }
 
 func NewQuotesOnDesignError(code string, msg string, ctx *Context) *QuotesOnDesignError {
@@ -21,7 +23,12 @@ func NewQuotesOnDesignError(code string, msg string, ctx *Context) *QuotesOnDesi
 		Code:               code,
 		Msg:                msg,
 		Ctx:                ctx,
+		Status:             -1,
 	}
+}
+
+func (e *QuotesOnDesignError) NotFound() bool {
+	return 404 == e.Status
 }
 
 func (e *QuotesOnDesignError) Error() string {
@@ -35,6 +42,7 @@ func (e *QuotesOnDesignError) Record() map[string]any {
 		"sdk":     e.Sdk,
 		"code":    e.Code,
 		"message": e.Msg,
+		"status":  e.Status,
 		"result":  e.Result,
 		"spec":    e.Spec,
 	}

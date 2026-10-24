@@ -223,13 +223,9 @@ main: kit: entity: post: {
           }
           m: "GET"
           o: "/posts/"
-          q: {
-            exist: [
-              "embed"
-              "orderby"
-              "page"
-              "per_page"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
@@ -277,9 +273,12 @@ main: kit: entity: post: {
           o: "/posts/{id}"
           q: {
             exist: [
-              "embed"
               "id"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

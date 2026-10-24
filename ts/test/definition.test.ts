@@ -17,16 +17,38 @@ const PLAN: any[] = [
     "args": [],
     "select": {
       "embed": "v1",
-      "orderby": "v1",
-      "page": "v1",
-      "per_page": "v1"
+      "orderby": "date",
+      "page": 1,
+      "per_page": 10
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "orderby",
       "per_page",
       "page",
       "_embed"
+    ],
+    "queryArgs": [
+      {
+        "name": "embed",
+        "wire": "_embed"
+      },
+      {
+        "name": "orderby",
+        "wire": "orderby"
+      },
+      {
+        "name": "page",
+        "wire": "page"
+      },
+      {
+        "name": "per_page",
+        "wire": "per_page"
+      }
     ],
     "auth": null,
     "status": 200,
@@ -73,8 +95,18 @@ const PLAN: any[] = [
       "embed": "v1"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "_embed"
+    ],
+    "queryArgs": [
+      {
+        "name": "embed",
+        "wire": "_embed"
+      }
     ],
     "auth": null,
     "status": 200,

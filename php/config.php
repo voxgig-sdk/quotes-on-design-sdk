@@ -93,6 +93,7 @@ class QuotesOnDesignConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -310,13 +311,10 @@ class QuotesOnDesignConfig
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'embed',
-                      'orderby',
-                      'page',
-                      'per_page',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],
@@ -368,9 +366,12 @@ class QuotesOnDesignConfig
                   ],
                   'select' => [
                     'exist' => [
-                      'embed',
                       'id',
                     ],
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

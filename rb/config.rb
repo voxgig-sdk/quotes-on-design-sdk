@@ -79,6 +79,7 @@ module QuotesOnDesignConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -296,13 +297,10 @@ module QuotesOnDesignConfig
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "embed",
-                      "orderby",
-                      "page",
-                      "per_page",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -354,9 +352,12 @@ module QuotesOnDesignConfig
                   },
                   "select" => {
                     "exist" => [
-                      "embed",
                       "id",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
